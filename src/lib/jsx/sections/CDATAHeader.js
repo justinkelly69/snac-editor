@@ -22,6 +22,8 @@ const CDATAHeader = props =>
                     </Buttons.StandardButton>
                 </Panels.PanelItemRight>
 
+                
+
                 <Panels.PanelItemRight>
                     <Buttons.CDATAButton onClick={() => props.saveCDATA(props.data, props.cdata)}>
                         {Labels.SaveCDATA}
@@ -48,7 +50,7 @@ const CDATAHeader = props =>
                         {Labels.InsertCDATA}
                     </Buttons.CDATAButton>
                 </Panels.PanelItemRight>
-
+                
                 <Panels.PanelItemRight>
                     <Buttons.StandardButton onClick={() => props.setMode('T')}>
                         {Labels.CancelCDATA}

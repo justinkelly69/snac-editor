@@ -11,6 +11,7 @@ const CommentHeader = props =>
         </Panels.PanelItemRight>
 
         <Panels.PanelSpacing />
+        
         {props.canEdit && props.path && props.path.length > 1 ?
             <>
                 <Panels.PanelItemRight>
@@ -27,7 +28,7 @@ const CommentHeader = props =>
                         {Labels.SaveComment}
                     </Buttons.CommentButton>
                 </Panels.PanelItemRight>
-                
+
                 <Panels.PanelItemRight>
                     <Buttons.StandardButton onClick={() =>  props.clearEditor() }>
                         {Labels.CancelComment}
