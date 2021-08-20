@@ -82,20 +82,17 @@ class Main extends Component {
     }
 
     setEditor(props) {
-        props.data ?(
-            this.isEditor(props.editor ? (
-                this.clearEditor(),
-                this.clearSelected(() => {
+        props.data ? (
+            this.isEditor(props.editor) ? (
+                this.clearEditor(this.clearSelected(() => {
                     this.setState({
                         data: SNAC.clone(props.data),
                         editor: props.editor,
                         path: props.path,
                     })
-                })) :
-
+                }))) :
                 this.isDisplay(props.editor) && props.selectedNodes.length === 0 ?
                     this.clearEditor() :
-
                     this.setState(() => ({
                         root: props.root,
                         editor: Editors.XML_DISPLAY,
@@ -103,9 +100,8 @@ class Main extends Component {
                         prefix: props.prefix,
                         selectedPaths: props.selectedPaths,
                         selectedNodes: props.selectedNodes,
-                    })))):
+                    }))) :
             this.clearEditor()
-        
     }
 
     isEditor(e) {
@@ -122,7 +118,7 @@ class Main extends Component {
         return e === Editors.XML_DISPLAY
     }
 
-    clearEditor() {
+    clearEditor(next) {
         this.setState({
             data: {},
             editor: '',
@@ -130,7 +126,7 @@ class Main extends Component {
             path: '',
             selectedPaths: [],
             selectedNodes: []
-        })
+        }, next && next())
     }
 
     setEdited() {
@@ -227,8 +223,8 @@ class Main extends Component {
         const { remove, replace } = SNAC.insertNode(data, atts)
         this.save(remove, replace)
         this.setEditor({
-            data: data,
             editor: Editors.TEXT_EDITOR,
+            root: this.state.root
         })
     }
 
@@ -286,8 +282,7 @@ class Main extends Component {
 
     // XML EDITOR FUNCTIONS
     setSelected(path, next) {
-        const { root, selectedPaths, selectedNodes } =
-            SNAC.setSelected(this.state.root, this.state.selectedPaths, path)
+        const { root, selectedPaths, selectedNodes } = SNAC.setSelected(this.state.root, this.state.selectedPaths, path)
         this.setState({
             root: root,
             selectedPaths,
@@ -306,6 +301,7 @@ class Main extends Component {
 
     // SAVE EVERYTHING
     save(remove, replace) {
+        console.log('this.state.data._', JSON.stringify(this.state.data._, null, 4))
         if (this.state.data._ !== null) {
             this.setState({
                 root: SNAC.clone(this.state.root, { remove, replace })
