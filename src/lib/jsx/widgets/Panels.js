@@ -19,8 +19,6 @@ export const Panel = styled(Area) `
 	font-family: 'Courier New', Courier, monospace;
 	font-size: 10pt;
 	height: 100%;
-	/* min-height: 500px;
-	width: 500px; */
 `
 export const PanelHeader = styled(List) `
 	background-color: #eee;

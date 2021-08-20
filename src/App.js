@@ -6,7 +6,7 @@ import Main from './lib/jsx/Main'
 class App extends Component {
     render() {
         return (
-                <Main xml={allXml['waffle']} />
+            <Main xml={allXml['waffle']} />
         )
     }
 }

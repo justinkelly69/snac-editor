@@ -3,7 +3,6 @@ import {
     XMLDisplay, NodeEditor, TextEditor, CDATAEditor,
     CommentEditor, PIEditor, Editors, Display,
 } from '.'
-import allXml from '../../data/allxml'
 import * as SNAC from 'snac'
 
 class Main extends Component {
@@ -22,7 +21,6 @@ class Main extends Component {
             selectedNodes: [],
             clipboard: [],
             writeable: true,
-            page: 'waffle',
         }
         this.setEditor = this.setEditor.bind(this)
         this.clearEditor = this.clearEditor.bind(this)
@@ -30,7 +28,6 @@ class Main extends Component {
         this.clearEdited = this.clearEdited.bind(this)
         this.setWriteable = this.setWriteable.bind(this)
         this.setPath = this.setPath.bind(this)
-        this.loadXML = this.loadXML.bind(this)
         this.saveNode = this.saveNode.bind(this)
         this.unwrapNode = this.unwrapNode.bind(this)
         this.wrapNodes = this.wrapNodes.bind(this)
@@ -51,30 +48,64 @@ class Main extends Component {
         this.clearSelected = this.clearSelected.bind(this)
     }
 
-    setEditor(props) {
-        this.state.data && props.data && props.data._ === this.state.data._ ?
-            this.clearEditor() :
-            props.data ?
-                this.isEditor(props.editor) ?
-                    this.clearSelected(() => {
-                        this.setState(() => ({
-                            data: SNAC.clone(props.data),
-                            editor: props.editor,
-                            path: props.path,
-                        }))
-                    }) :
-                    (this.isDisplay(props.editor)) &&
-                        props.selectedNodes.length === 0 ?
-                        this.clearEditor() :
-                        this.setState(() => ({
-                            root: props.root,
-                            editor: Editors.XML_DISPLAY,
-                            path: props.path,
-                            prefix: props.prefix,
-                            selectedPaths: props.selectedPaths,
-                            selectedNodes: props.selectedNodes,
-                        })) :
+    setEditor1(props) {
+        if (props.data) {
+            if (this.isEditor(props.editor)) {
                 this.clearEditor()
+                this.clearSelected(() => {
+                    this.setState({
+                        data: SNAC.clone(props.data),
+                        editor: props.editor,
+                        path: props.path,
+                    })
+                })
+            }
+            else {
+                if (this.isDisplay(props.editor) && props.selectedNodes.length === 0) {
+                    this.clearEditor()
+                }
+                else {
+                    this.setState(() => ({
+                        root: props.root,
+                        editor: Editors.XML_DISPLAY,
+                        path: props.path,
+                        prefix: props.prefix,
+                        selectedPaths: props.selectedPaths,
+                        selectedNodes: props.selectedNodes,
+                    }))
+                }
+            }
+        }
+        else {
+            this.clearEditor()
+        }
+    }
+
+    setEditor(props) {
+        props.data ?(
+            this.isEditor(props.editor ? (
+                this.clearEditor(),
+                this.clearSelected(() => {
+                    this.setState({
+                        data: SNAC.clone(props.data),
+                        editor: props.editor,
+                        path: props.path,
+                    })
+                })) :
+
+                this.isDisplay(props.editor) && props.selectedNodes.length === 0 ?
+                    this.clearEditor() :
+
+                    this.setState(() => ({
+                        root: props.root,
+                        editor: Editors.XML_DISPLAY,
+                        path: props.path,
+                        prefix: props.prefix,
+                        selectedPaths: props.selectedPaths,
+                        selectedNodes: props.selectedNodes,
+                    })))):
+            this.clearEditor()
+        
     }
 
     isEditor(e) {
@@ -94,7 +125,7 @@ class Main extends Component {
     clearEditor() {
         this.setState({
             data: {},
-            editor: 'Z',
+            editor: '',
             prefix: '',
             path: '',
             selectedPaths: [],
@@ -108,17 +139,6 @@ class Main extends Component {
 
     clearEdited() {
         this.setState({ edited: false })
-    }
-
-    loadXML(event) {
-        this.setState({
-            page: event.target.value,
-            editor: 'Z'
-        }, () => {
-            this.setState({
-                root: SNAC.xml2snac(allXml[this.state.page])
-            })
-        })
     }
 
     setWriteable() {
@@ -288,10 +308,7 @@ class Main extends Component {
     save(remove, replace) {
         if (this.state.data._ !== null) {
             this.setState({
-                root: SNAC.clone(
-                    this.state.root,
-                    { remove, replace }
-                )
+                root: SNAC.clone(this.state.root, { remove, replace })
             })
         }
     }
@@ -306,8 +323,7 @@ class Main extends Component {
             writeable: this.state.writeable,
             setPath: this.setPath,
             editor: this.state.editor,
-            loadXML: this.loadXML,
-            page: this.state.page,
+            page: this.props.page,
         }
 
         return this.state.editor === Editors.NODE_EDITOR ? (
@@ -353,7 +369,7 @@ class Main extends Component {
                 unwrapNode={this.unwrapNode}
                 clearEditor={this.clearEditor}
                 setEdited={this.setEdited}
-                clearEdited={this.clearEdited} 
+                clearEdited={this.clearEdited}
                 edited={this.state.edited}
                 docProps={docProps}
             />
@@ -367,7 +383,7 @@ class Main extends Component {
                 unwrapNode={this.unwrapNode}
                 clearEditor={this.clearEditor}
                 setEdited={this.setEdited}
-                clearEdited={this.clearEdited} 
+                clearEdited={this.clearEdited}
                 edited={this.state.edited}
                 docProps={docProps}
             />
