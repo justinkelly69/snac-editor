@@ -1,15 +1,26 @@
 import React from 'react'
 import {
-    DocumentElement, Sections, Path
+    DocumentElement, Sections, Path, DisplayHeader
 } from '.'
 
 const Display = props => {
+
+    let header = props.Header ?
+        props.Header :
+        <DisplayHeader
+            twoLines={props.twoLines}
+            setTwoLines={props.setTwoLines}
+            showClosingTags={props.showClosingTags}
+            closingTags={props.closingTags}
+            setSelectMode={props.setSelectMode}
+            selectMode={props.selectMode}
+        />
 
     return (
         <Sections.MainContainer>
 
             <Sections.TopRow>
-                {props.Header}
+                {header}
             </Sections.TopRow>
 
             <Sections.VerticalColumns>
@@ -23,6 +34,9 @@ const Display = props => {
                         writeable={props.docProps.writeable}
                         setPath={props.docProps.setPath}
                         editor={props.docProps.editor}
+                        twoLines={props.twoLines}
+                        closingTags={props.closingTags}
+                        selectMode={props.selectMode}
                     />
                 </Sections.VerticalColumn>
 

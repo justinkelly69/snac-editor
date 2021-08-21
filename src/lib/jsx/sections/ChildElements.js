@@ -23,7 +23,10 @@ const ChildElements = props =>
                 setPath={props.setPath}
                 writeable={props.writeable}
                 showSwitches={props.showSwitches}
-                showClosingTag={props.showClosingTag}
+                closingTags={props.closingTags}
+                selectMode={props.selectMode}
+                twoLines={props.twoLines}
+
             />
         )}
     </>

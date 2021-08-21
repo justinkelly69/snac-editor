@@ -1,5 +1,5 @@
 import React from 'react'
-import { NodeElement, Settings } from '.'
+import { NodeElement } from '.'
 
 const DocumentElement = props =>
     <NodeElement
@@ -9,7 +9,9 @@ const DocumentElement = props =>
         spacing={0}
         prefixArray={[]}
         showSwitches={true}
-        showClosingTag={Settings.SHOW_CLOSING_TAG}
+        closingTags={props.closingTags}
+        twoLines={props.twoLines}
+        selectMode={props.selectMode}
         {...props}
     />
 export default DocumentElement

@@ -19,7 +19,12 @@ const CDATAEditor = props => {
         />
 
     return (
-        <Display Header={Header} Body={Body} {...props} />
+        <Display
+            Header={Header}
+            Body={Body}
+            selectMode={props.selectMode}
+            {...props}
+        />
     )
 }
 export default CDATAEditor

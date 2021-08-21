@@ -102,7 +102,12 @@ export const NodeEditor = props => {
     )
 
     return (
-        <Display Header={Header} Body={Body} {...props} />
+        <Display
+            Header={Header}
+            Body={Body}
+            selectMode={props.selectMode}
+            {...props}
+        />
     )
 }
 

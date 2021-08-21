@@ -34,6 +34,12 @@ const Labels = {
     DeleteXML: "Delete",
     WrapXML: "Wrap",
     PIHeading: "PI",
+    OneLine: "One Line",
+    TwoLines: "Two Lines",
+    ShowCloseTags: "Show Close Tags",
+    HideCloseTags: "Hide Close Tags",
+    SelectMode: "Select Mode",
+    EditMode: "Edit Mode",
 }
 
 export default Labels

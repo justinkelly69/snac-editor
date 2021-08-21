@@ -22,6 +22,8 @@ import NewAttribute from './sections/NewAttribute'
 import AttributeNSName from './sections/AttributeNSName'
 import AttributeValue from './sections/AttributeValue'
 
+import DisplayHeader from './sections/DisplayHeader'
+
 import NodeHeader from './sections/NodeHeader'
 import NodeBody from './sections/NodeBody'
 import ChildElements from './sections/ChildElements'
@@ -86,5 +88,5 @@ export {
     Constants, Editors, Sizes, Settings, WriteableButtons, Links,
     Fields, Symbols, Colors, Labels, TextInputs, Styles, Sections, Panels, ButtonStyles, PanelButtonsRight,
     NodeHeader, TextHeader, CDATAHeader, CommentHeader, PIHeader, XMLHeader, AttributeValue, TextViews,
-    CheckboxStyles, Checkboxes
+    CheckboxStyles, Checkboxes, DisplayHeader
 }

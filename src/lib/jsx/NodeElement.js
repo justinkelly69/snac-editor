@@ -26,11 +26,13 @@ const NodeElement = props => {
             {props.path.length === 0 || cOpen ?
                 <ChildElements
                     elements={props.data.C}
+                    twoLines={props.twoLines}
+                    selectMode={props.selectMode}
                     {...props}
                 /> :
                 null
             }
-            {props.showClosingTag && (props.path.length > 0 || props.data.N !== '@@@') ? // Closing XML Tag
+            {(props.closingTags || !props.writeable) && (props.path.length > 0 || props.data.N !== '@@@') ? // Closing XML Tag
                 <NodeTag
                     openTag={false}
                     {...props}

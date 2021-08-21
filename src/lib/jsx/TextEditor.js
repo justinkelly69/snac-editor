@@ -91,7 +91,7 @@ const TextEditor = props => {
                     textAfter={textAfter}
                     {...props}
                 />
-            ) : null }
+            ) : null}
         </Panels.PanelHeader>
     )
 
@@ -108,7 +108,12 @@ const TextEditor = props => {
     )
 
     return (
-        <Display Header={Header} Body={Body} {...props} />
+        <Display
+            Header={Header}
+            Body={Body}
+            selectMode={props.selectMode}
+            {...props}
+        />
     )
 }
 
