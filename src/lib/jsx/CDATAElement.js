@@ -23,6 +23,7 @@ const CDATAElement = props => {
                 <Brackets.CDATAOpenBracket />
                 <CDATAView
                     dOpen={dOpen}
+                    isEdited={props.isEdited}
                     {...props}
                 />
                 <Brackets.CDATACloseBracket />

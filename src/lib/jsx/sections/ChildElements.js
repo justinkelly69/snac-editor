@@ -26,7 +26,7 @@ const ChildElements = props =>
                 closingTags={props.closingTags}
                 selectMode={props.selectMode}
                 twoLines={props.twoLines}
-
+                isEdited={props.isEdited}
             />
         )}
     </>

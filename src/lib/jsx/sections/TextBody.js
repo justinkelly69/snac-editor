@@ -2,6 +2,7 @@ import React from 'react'
 import { TextAreas, Panels } from '..'
 
 const TextBody = props =>
+
     <Panels.PanelBody>
         <TextAreas.TextInput
             value={props.text}

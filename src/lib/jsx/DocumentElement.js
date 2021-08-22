@@ -2,6 +2,7 @@ import React from 'react'
 import { NodeElement } from '.'
 
 const DocumentElement = props =>
+
     <NodeElement
         prefixEnabled={true}
         path={[]}
@@ -12,6 +13,8 @@ const DocumentElement = props =>
         closingTags={props.closingTags}
         twoLines={props.twoLines}
         selectMode={props.selectMode}
+        isEdited={props.isEdited}
         {...props}
     />
+    
 export default DocumentElement

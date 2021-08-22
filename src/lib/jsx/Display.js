@@ -5,23 +5,20 @@ import {
 
 const Display = props => {
 
-    let header = props.Header ?
-        props.Header :
-        <DisplayHeader
-            twoLines={props.twoLines}
-            setTwoLines={props.setTwoLines}
-            showClosingTags={props.showClosingTags}
-            closingTags={props.closingTags}
-            setSelectMode={props.setSelectMode}
-            selectMode={props.selectMode}
-        />
-
     return (
         <Sections.MainContainer>
 
-            <Sections.TopRow>
-                {header}
-            </Sections.TopRow>
+            <DisplayHeader
+                twoLines={props.twoLines}
+                setTwoLines={props.setTwoLines}
+                showClosingTags={props.showClosingTags}
+                closingTags={props.closingTags}
+                setSelectMode={props.setSelectMode}
+                selectMode={props.selectMode}
+                Header={props.Header}
+                setEditor={props.setEditor}
+                isEdited={props.isEdited}
+            />
 
             <Sections.VerticalColumns>
 
@@ -37,7 +34,9 @@ const Display = props => {
                         twoLines={props.twoLines}
                         closingTags={props.closingTags}
                         selectMode={props.selectMode}
+                        isEdited={props.isEdited}
                     />
+
                 </Sections.VerticalColumn>
 
                 <Sections.VerticalColumn>

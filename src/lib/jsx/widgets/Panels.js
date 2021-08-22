@@ -17,7 +17,7 @@ const ListItem = styled.li `
 export const Panel = styled(Area) `
 	white-space: pre;
 	font-family: 'Courier New', Courier, monospace;
-	font-size: 10pt;
+	font-size: 1em;
 	height: 100%;
 `
 export const PanelHeader = styled(List) `
@@ -30,6 +30,7 @@ export const PanelItem = styled(ListItem) `
 	flex-basis: ${props => props.flexBasis ? props.flexBasis : 'auto'};
 	flex-grow: ${props => props.flexGrow ? props.flexGrow : 0};
 	flex-shrink: ${props => props.flexShrink ? props.flexShrink : 1};
+	margin-right: ${props => props.marginLeft ? props.marginLeft : 0};
 	margin-right: ${props => props.marginRight ? props.marginRight : 0};
 `
 export const PanelSpacing = styled(ListItem) `
@@ -38,7 +39,7 @@ export const PanelSpacing = styled(ListItem) `
 `
 export const PanelItemRight = styled(PanelItem) `
 	flex: 1;
-	flex-grow: 0;
+	flex-grow: 1;
 	margin-right: ${PanelButtonsRight.marginRight};
 `
 export const PanelBody = styled(Area) `

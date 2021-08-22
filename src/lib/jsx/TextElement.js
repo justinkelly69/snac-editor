@@ -28,6 +28,7 @@ const TextElement = props => {
                         }
                         <TextView
                             tOpen={tOpen}
+                            isEdited={props.isEdited}
                             {...props}
                         />
                         {props.writeable && !tOpen ?

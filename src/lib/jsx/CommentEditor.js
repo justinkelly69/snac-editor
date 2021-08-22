@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Display, CommentHeader, CommentBody } from '.'
 
 const CommentEditor = props => {
+
     const [comment, setComment] = useState(props.data.M)
 
     const Header =
@@ -9,6 +10,7 @@ const CommentEditor = props => {
             canEdit={true}
             comment={comment}
             unwrapNode={props.unwrapNode}
+            setEdited={props.setEdited}
             {...props}
         />
 
@@ -16,6 +18,7 @@ const CommentEditor = props => {
         <CommentBody
             setComment={setComment}
             comment={comment}
+            setEdited={props.setEdited}
         />
 
 
@@ -28,4 +31,5 @@ const CommentEditor = props => {
         />
     )
 }
+
 export default CommentEditor

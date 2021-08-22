@@ -5,6 +5,7 @@ import { CheckboxStyles } from '..'
 export const Checkbox = props =>
     <label>
         <input type="checkbox"
+            disabled={props.disabled}
             checked={props.checked}
             onChange={props.onChange} />
         {props.label}

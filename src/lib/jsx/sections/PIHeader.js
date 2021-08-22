@@ -2,66 +2,85 @@ import React from 'react'
 import { Buttons, Labels, Brackets, Panels, PanelButtonsRight, TextInputs, Fields } from '..'
 
 const PIHeader = props =>
-    <Panels.PanelHeader>
-
-        <Panels.PanelItemRight flexGrow="1" marginRight={PanelButtonsRight.marginRight}>
+    <>
+        <Panels.PanelItem flexGrow="1" marginRight={PanelButtonsRight.marginRight}>
             <Brackets.PIOpenBracket />
             <Fields.PILang>{Labels.PIHeading}</Fields.PILang>
             <Brackets.PICloseBracket />
-        </Panels.PanelItemRight>
+        </Panels.PanelItem>
 
-        <Panels.PanelItemRight flexGrow="1" >
-            <TextInputs.PILangInput value={props.lang} onChange={(event) => props.setLang(event.target.value)} />
-        </Panels.PanelItemRight>
+        <Panels.PanelItem flexGrow="1" >
+            <TextInputs.PILangInput
+                value={props.lang}
+                onChange={(event) => {
+                    props.setLang(event.target.value)
+                    props.setEdited(true)
+                }} />
+        </Panels.PanelItem>
 
         <Panels.PanelSpacing />
 
         {props.canEdit && props.path && props.path.length > 1 ?
             <>
-                <Panels.PanelItemRight>
-                    <Buttons.StandardButton onClick={() => {
-                        props.unwrapNode(props.root, props.path)
-                        props.clearEditor()
-                    }}>
+                <Panels.PanelItem>
+                    <Buttons.StandardButton
+                        onClick={() => {
+                            props.unwrapNode(props.root, props.path)
+                            props.clearEditor()
+                            props.setEdited(false)
+                        }}>
                         {Labels.UnwrapPI}
                     </Buttons.StandardButton>
-                </Panels.PanelItemRight>
+                </Panels.PanelItem>
 
-                <Panels.PanelItemRight>
-                    <Buttons.PIButton onClick={() => props.savePI(props.data, props.lang, props.body)}>
+                <Panels.PanelItem>
+                    <Buttons.PIButton
+                        onClick={() => {
+                            props.savePI(props.data, props.lang, props.body)
+                            props.setEdited(false)
+                        }}>
                         {Labels.SavePI}
                     </Buttons.PIButton>
-                </Panels.PanelItemRight>
+                </Panels.PanelItem>
 
-                <Panels.PanelItemRight>
-                    <Buttons.StandardButton onClick={() => props.clearEditor()}>
+                <Panels.PanelItem>
+                    <Buttons.StandardButton
+                        onClick={() => {
+                            props.clearEditor()
+                            props.setEdited(false)
+                        }}>
                         {Labels.CancelPI}
                     </Buttons.StandardButton>
-                </Panels.PanelItemRight>
+                </Panels.PanelItem>
             </> :
             <>
-                <Panels.PanelItemRight>
-                    <Buttons.PIButton onClick={() => {
-                        props.insertPI(props.data, {
-                            lang: props.lang,
-                            before: props.textBefore,
-                            inside: props.textInside,
-                            after: props.textAfter
-                        })
-                        props.clearEditor()
-                    }}>
+                <Panels.PanelItem>
+                    <Buttons.PIButton
+                        onClick={() => {
+                            props.insertPI(props.data, {
+                                lang: props.lang,
+                                before: props.textBefore,
+                                inside: props.textInside,
+                                after: props.textAfter
+                            })
+                            props.clearEditor()
+                            props.setEdited(false)
+                        }}>
                         {Labels.InsertPI}
                     </Buttons.PIButton>
-                </Panels.PanelItemRight>
-                
-                <Panels.PanelItemRight>
-                    <Buttons.StandardButton onClick={() => props.setMode('T')}>
+                </Panels.PanelItem>
+
+                <Panels.PanelItem>
+                    <Buttons.StandardButton
+                        onClick={() => {
+                            props.setMode('T')
+                            props.setEdited(false)
+                        }}>
                         {Labels.CancelPI}
                     </Buttons.StandardButton>
-                </Panels.PanelItemRight>
+                </Panels.PanelItem>
             </>
         }
-    </Panels.PanelHeader>
+    </>
 
 export default PIHeader
-

@@ -49,6 +49,7 @@ export const NodeEditor = props => {
     }
 
     const Header = (
+
         <NodeHeader
             canEdit={true}
             isOpen={SNAC.attsOpen(atts)}
@@ -65,6 +66,8 @@ export const NodeEditor = props => {
             data={props.data}
             root={props.root}
             clearEditor={props.clearEditor}
+            isEdited={props.isEdited}
+            setEdited={props.setEdited}
         />
     )
 
@@ -81,8 +84,10 @@ export const NodeEditor = props => {
                 updateAttributeValue={updateAttributeValue}
                 markAttributeDeleted={markAttributeDeleted}
                 path={props.path}
-
+                isEdited={props.isEdited}
+                setEdited={props.setEdited}
             />
+
             <NewAttribute
                 atts={atts}
                 isOpen={SNAC.attsOpen(atts)}
@@ -96,7 +101,8 @@ export const NodeEditor = props => {
                 name={newAttName}
                 value={newAttValue}
                 path={props.path}
-
+                isEdited={props.isEdited}
+                setEdited={props.setEdited}
             />
         </Panels.PanelBody>
     )

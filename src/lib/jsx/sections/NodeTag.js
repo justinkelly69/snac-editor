@@ -1,15 +1,18 @@
 import React from 'react'
-import { Prefix, NSNameLabels, Brackets, Settings, Links, Symbols } from '..'
+import { Prefix, NSNameLabels, Brackets, Links, Symbols } from '..'
 
 const NodeTag = props =>
     <>
         <Prefix
-            twoLines={Settings.PREFIX_TWO_LINES}
+            twoLines={props.twoLines}
             {...props}
         />
+
         {props.showSwitches &&
             <Links.NodeLink
-                onClick={() => { props.setCOpen(!props.cOpen) }}
+                onClick={() => {
+                    props.isEdited || props.setCOpen(!props.cOpen)
+                }}
                 active={props.cOpen}>
                 {props.cOpen ?
                     Symbols.ToggleOpen :
@@ -17,11 +20,17 @@ const NodeTag = props =>
                 }
             </Links.NodeLink>
         }
+
         {props.openTag ?
             <Brackets.NodeOpenStartCaret /> :
             <Brackets.NodeCloseStartCaret />
         }
-        <NSNameLabels {...props} />
+
+        <NSNameLabels
+            isEdited={props.isEdited}
+            setEdited={props.setEdited}
+            {...props} />
+
         {!props.openTag &&
             <Brackets.NodeCloseEndCaret />
         }

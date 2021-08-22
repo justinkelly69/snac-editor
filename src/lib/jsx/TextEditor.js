@@ -26,6 +26,7 @@ const TextEditor = props => {
 
     const saveEdit = (target) => {
         setText(target.value)
+        props.setEdited(true)
     }
 
     const normalizeText = target => {

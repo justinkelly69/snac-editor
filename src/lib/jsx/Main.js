@@ -12,7 +12,7 @@ class Main extends Component {
             data: SNAC.xml2snac(this.props.xml),
             root: SNAC.xml2snac(this.props.xml),
             editor: "",
-            edited: false,
+            isEdited: false,
             path: [],
             pathDisplay: [],
             pathRow: [],
@@ -134,20 +134,23 @@ class Main extends Component {
         }, next && next())
     }
 
-    setEdited() {
-        this.setState({ edited: true })
+    setEdited(isEdited) {
+        this.setState({ isEdited: isEdited })
     }
 
     setTwoLines() {
-        this.setState({twoLines: !this.state.twoLines})
+        this.setState({ twoLines: !this.state.twoLines })
     }
 
     showClosingTags() {
-        this.setState({closingTags: !this.state.closingTags})
+        this.setState({ closingTags: !this.state.closingTags })
     }
 
     setSelectMode() {
-        this.setState({selectMode: !this.state.selectMode})
+        if (!this.state.selectMode) {
+            this.setState({ editor: Editors.XML_DISPLAY })
+        }
+        this.setState({ selectMode: !this.state.selectMode })
     }
 
     setWriteable() {
@@ -344,10 +347,13 @@ class Main extends Component {
                 unwrapNode={this.unwrapNode}
                 clearEditor={this.clearEditor}
                 setEdited={this.setEdited}
-                edited={this.state.edited}
+                isEdited={this.state.isEdited}
+                setTwoLines={this.setTwoLines}
                 twoLines={this.state.twoLines}
+                showClosingTags={this.showClosingTags}
                 closingTags={this.state.closingTags}
                 selectMode={this.state.selectMode}
+                setSelectMode={this.setSelectMode}
                 docProps={docProps}
             />
         ) : this.state.editor === Editors.TEXT_EDITOR ? (
@@ -365,10 +371,13 @@ class Main extends Component {
                 saveText={this.saveText}
                 clearEditor={this.clearEditor}
                 setEdited={this.setEdited}
-                edited={this.state.edited}
+                isEdited={this.state.isEdited}
+                setTwoLines={this.setTwoLines}
                 twoLines={this.state.twoLines}
+                showClosingTags={this.showClosingTags}
                 closingTags={this.state.closingTags}
                 selectMode={this.state.selectMode}
+                setSelectMode={this.setSelectMode}
                 docProps={docProps}
             />
         ) : this.state.editor === Editors.CDATA_EDITOR ? (
@@ -381,10 +390,13 @@ class Main extends Component {
                 unwrapNode={this.unwrapNode}
                 clearEditor={this.clearEditor}
                 setEdited={this.setEdited}
-                edited={this.state.edited}
+                isEdited={this.state.isEdited}
+                setTwoLines={this.setTwoLines}
                 twoLines={this.state.twoLines}
+                showClosingTags={this.showClosingTags}
                 closingTags={this.state.closingTags}
                 selectMode={this.state.selectMode}
+                setSelectMode={this.setSelectMode}
                 docProps={docProps}
             />
         ) : this.state.editor === Editors.COMMENT_EDITOR ? (
@@ -397,10 +409,13 @@ class Main extends Component {
                 unwrapNode={this.unwrapNode}
                 clearEditor={this.clearEditor}
                 setEdited={this.setEdited}
-                edited={this.state.edited}
+                isEdited={this.state.isEdited}
+                setTwoLines={this.setTwoLines}
                 twoLines={this.state.twoLines}
+                showClosingTags={this.showClosingTags}
                 closingTags={this.state.closingTags}
                 selectMode={this.state.selectMode}
+                setSelectMode={this.setSelectMode}
                 docProps={docProps}
             />
         ) : this.state.editor === Editors.PI_EDITOR ? (
@@ -413,9 +428,12 @@ class Main extends Component {
                 unwrapNode={this.unwrapNode}
                 clearEditor={this.clearEditor}
                 setEdited={this.setEdited}
-                edited={this.state.edited}
+                isEdited={this.state.isEdited}
+                setTwoLines={this.setTwoLines}
                 twoLines={this.state.twoLines}
+                showClosingTags={this.showClosingTags}
                 closingTags={this.state.closingTags}
+                setSelectMode={this.setSelectMode}
                 selectMode={this.state.selectMode}
                 docProps={docProps}
             />
@@ -438,14 +456,18 @@ class Main extends Component {
                 setEditor={this.setEditor}
                 clearEditor={this.clearEditor}
                 setEdited={this.setEdited}
-                edited={this.state.edited}
+                isEdited={this.state.isEdited}
+                setTwoLines={this.setTwoLines}
                 twoLines={this.state.twoLines}
+                showClosingTags={this.showClosingTags}
                 closingTags={this.state.closingTags}
+                setSelectMode={this.setSelectMode}
                 selectMode={this.state.selectMode}
                 docProps={docProps}
             />
         ) : (
             <Display
+                setEditor={this.setEditor}
                 docProps={docProps}
                 setTwoLines={this.setTwoLines}
                 showClosingTags={this.showClosingTags}
@@ -453,6 +475,7 @@ class Main extends Component {
                 twoLines={this.state.twoLines}
                 setSelectMode={this.setSelectMode}
                 selectMode={this.state.selectMode}
+                isEdited={this.state.isEdited}
                 {...this.state}
             />
         )

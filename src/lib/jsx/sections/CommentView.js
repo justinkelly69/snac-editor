@@ -5,7 +5,7 @@ import { Editors, Fields, Sizes, Symbols, TextViews, Prefix, Panels } from '..'
 const CommentView = (props) =>
     <Fields.CommentBody
         onClick={() => {
-            props.writeable && props.setEditor({
+            !props.isEdited && !props.selectMode && props.writeable && props.setEditor({
                 data: props.data,
                 editor: Editors.COMMENT_EDITOR,
                 path: props.path

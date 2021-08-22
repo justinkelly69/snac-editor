@@ -12,6 +12,7 @@ const PIEditor = props => {
             body={body}
             setLang={setLang}
             unwrapNode={props.unwrapNode}
+            setEdited={props.setEdited}
             {...props}
         />
     )
@@ -20,6 +21,7 @@ const PIEditor = props => {
         <PIBody
             body={body}
             setBody={setBody}
+            setEdited={props.setEdited}
             {...props}
         />
     )

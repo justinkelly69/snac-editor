@@ -13,6 +13,7 @@ const NodeElement = props => {
                         openTag={true}
                         cOpen={cOpen}
                         setCOpen={setCOpen}
+                        isEdited={props.isEdited}
                         {...props}
                     />
                     <Attributes
@@ -28,6 +29,7 @@ const NodeElement = props => {
                     elements={props.data.C}
                     twoLines={props.twoLines}
                     selectMode={props.selectMode}
+                    isEdited={props.isEdited}
                     {...props}
                 /> :
                 null
@@ -35,6 +37,7 @@ const NodeElement = props => {
             {(props.closingTags || !props.writeable) && (props.path.length > 0 || props.data.N !== '@@@') ? // Closing XML Tag
                 <NodeTag
                     openTag={false}
+                    isEdited={props.isEdited}
                     {...props}
                 /> :
                 null

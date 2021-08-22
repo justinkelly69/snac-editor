@@ -28,6 +28,8 @@ const EditAttributes = props => {
                             attributesOpenClose={props.attributesOpenClose}
                             updateAttributeValue={props.updateAttributeValue}
                             markAttributeDeleted={props.markAttributeDeleted}
+                            isEdited={props.isEdited}
+                            setEdited={props.setEdited}
                             ns={ns}
                             name={a}
                         />

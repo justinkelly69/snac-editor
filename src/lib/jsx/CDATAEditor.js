@@ -9,6 +9,7 @@ const CDATAEditor = props => {
             canEdit={true}
             cdata={cdata}
             unwrapNode={props.unwrapNode}
+            setEdited={props.setEdited}
             {...props}
         />
 
@@ -16,6 +17,7 @@ const CDATAEditor = props => {
         <CDATABody
             cdata={cdata}
             setCDATA={setCDATA}
+            setEdited={props.setEdited}
         />
 
     return (

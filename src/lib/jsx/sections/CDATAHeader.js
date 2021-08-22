@@ -2,8 +2,7 @@ import React from 'react'
 import { Buttons, Labels, Brackets, Panels } from '..'
 
 const CDATAHeader = props =>
-    <Panels.PanelHeader>
-
+    <>
         <Panels.PanelItem>
             <Brackets.CDATAOpenBracket />
             <Brackets.CDATACloseBracket />
@@ -13,32 +12,39 @@ const CDATAHeader = props =>
 
         {props.canEdit && props.path && props.path.length > 1 ?
             <>
-                <Panels.PanelItemRight>
-                    <Buttons.StandardButton onClick={() => {
-                        props.unwrapNode(props.root, props.path)
-                        props.clearEditor()
-                    }}>
+                <Panels.PanelItem>
+                    <Buttons.StandardButton
+                        onClick={() => {
+                            props.unwrapNode(props.root, props.path)
+                            props.clearEditor()
+                            props.setEdited(false)
+                        }}>
                         {Labels.UnwrapCDATA}
                     </Buttons.StandardButton>
-                </Panels.PanelItemRight>
+                </Panels.PanelItem>
 
-                
-
-                <Panels.PanelItemRight>
-                    <Buttons.CDATAButton onClick={() => props.saveCDATA(props.data, props.cdata)}>
+                <Panels.PanelItem>
+                    <Buttons.CDATAButton
+                        onClick={() => {
+                            props.saveCDATA(props.data, props.cdata)
+                            props.setEdited(false)
+                        }}>
                         {Labels.SaveCDATA}
                     </Buttons.CDATAButton>
-                </Panels.PanelItemRight>
+                </Panels.PanelItem>
 
-                <Panels.PanelItemRight>
+                <Panels.PanelItem>
                     <Buttons.StandardButton
-                        onClick={() => props.clearEditor()}>
+                        onClick={() => {
+                            props.clearEditor()
+                            props.setEdited(false)
+                        }}>
                         {Labels.CancelCDATA}
                     </Buttons.StandardButton>
-                </Panels.PanelItemRight>
+                </Panels.PanelItem>
             </> :
             <>
-                <Panels.PanelItemRight>
+                <Panels.PanelItem>
                     <Buttons.CDATAButton onClick={() => {
                         props.insertCDATA(props.data, {
                             before: props.textBefore,
@@ -46,18 +52,22 @@ const CDATAHeader = props =>
                             after: props.textAfter
                         })
                         props.clearEditor()
+                        props.setEdited(false)
                     }}>
                         {Labels.InsertCDATA}
                     </Buttons.CDATAButton>
-                </Panels.PanelItemRight>
-                
-                <Panels.PanelItemRight>
-                    <Buttons.StandardButton onClick={() => props.setMode('T')}>
+                </Panels.PanelItem>
+
+                <Panels.PanelItem>
+                    <Buttons.StandardButton onClick={() => {
+                        props.setMode('T')
+                        props.setEdited(false)
+                    }}>
                         {Labels.CancelCDATA}
                     </Buttons.StandardButton>
-                </Panels.PanelItemRight>
+                </Panels.PanelItem>
             </>
         }
-    </Panels.PanelHeader>
+    </>
 
 export default CDATAHeader

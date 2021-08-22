@@ -6,11 +6,13 @@ const CommentElement = props => {
 
     return (
         <Sections.TextSection selected={props.writeable && props.data.q}>
+
             <Prefix
                 openTag={true}
                 twoLines={Settings.PREFIX_TWO_LINES}
                 {...props}
             />
+
             {props.showSwitches &&
                 <Links.NodeLink onClick={() => setMOpen(!mOpen)}>
                     {mOpen ?
@@ -19,14 +21,17 @@ const CommentElement = props => {
                     }
                 </Links.NodeLink>
             }
+
             <Fields.CommentBody>
                 <Brackets.CommentOpenBracket />
                 <CommentView
                     mOpen={mOpen}
+                    isEdited={props.isEdited}
                     {...props}
                 />
                 <Brackets.CommentCloseBracket />
             </Fields.CommentBody>
+            
         </Sections.TextSection>
     )
 }

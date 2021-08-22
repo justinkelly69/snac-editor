@@ -23,6 +23,7 @@ const PIElement = props => {
             <PILang data={props.data} />
             <PIView
                 pOpen={pOpen}
+                isEdited={props.isEdited}
                 {...props}
             />
             <Brackets.PICloseBracket />
