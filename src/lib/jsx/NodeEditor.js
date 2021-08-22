@@ -51,6 +51,15 @@ export const NodeEditor = props => {
     const Header = (
 
         <NodeHeader
+            path={props.path}
+            data={props.data}
+            root={props.root}
+            clearEditor={props.clearEditor}
+            isEdited={props.isEdited}
+            setEdited={props.setEdited}
+            saveNode={props.saveNode}
+            unwrapNode={props.unwrapNode}
+
             canEdit={true}
             isOpen={SNAC.attsOpen(atts)}
             setNewNS={setNewNS}
@@ -59,21 +68,18 @@ export const NodeEditor = props => {
             newName={newName}
             atts={atts}
             newAttr={newAttr}
-            saveNode={props.saveNode}
-            unwrapNode={props.unwrapNode}
             closeAll={closeAll}
-            path={props.path}
-            data={props.data}
-            root={props.root}
-            clearEditor={props.clearEditor}
-            isEdited={props.isEdited}
-            setEdited={props.setEdited}
+
         />
     )
 
     const Body = (
         <Panels.PanelBody>
             <EditAttributes
+                path={props.path}
+                isEdited={props.isEdited}
+                setEdited={props.setEdited}
+
                 atts={atts}
                 ns={newAttNS}
                 name={newAttName}
@@ -83,12 +89,14 @@ export const NodeEditor = props => {
                 closeAll={closeAll}
                 updateAttributeValue={updateAttributeValue}
                 markAttributeDeleted={markAttributeDeleted}
-                path={props.path}
-                isEdited={props.isEdited}
-                setEdited={props.setEdited}
+
             />
 
             <NewAttribute
+                path={props.path}
+                isEdited={props.isEdited}
+                setEdited={props.setEdited}
+
                 atts={atts}
                 isOpen={SNAC.attsOpen(atts)}
                 insertAttribute={insertAttribute}
@@ -100,9 +108,7 @@ export const NodeEditor = props => {
                 ns={newAttNS}
                 name={newAttName}
                 value={newAttValue}
-                path={props.path}
-                isEdited={props.isEdited}
-                setEdited={props.setEdited}
+
             />
         </Panels.PanelBody>
     )

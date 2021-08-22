@@ -334,7 +334,7 @@ class Main extends Component {
             writeable: this.state.writeable,
             setPath: this.setPath,
             editor: this.state.editor,
-            page: this.props.page,
+            //page: this.props.page,
         }
 
         return this.state.editor === Editors.NODE_EDITOR ? (
@@ -345,7 +345,6 @@ class Main extends Component {
                 pathRow={this.state.pathRow}
                 saveNode={this.saveNode}
                 unwrapNode={this.unwrapNode}
-                clearEditor={this.clearEditor}
                 setEdited={this.setEdited}
                 isEdited={this.state.isEdited}
                 setTwoLines={this.setTwoLines}
@@ -355,6 +354,14 @@ class Main extends Component {
                 selectMode={this.state.selectMode}
                 setSelectMode={this.setSelectMode}
                 docProps={docProps}
+
+                setEditor={this.setEditor}
+                clearEditor={this.clearEditor}
+                setSelected={this.setSelected}
+                writeable={this.state.writeable}
+                setPath={this.setPath}
+                editor={this.state.editor}
+                //page={this.props.page}
             />
         ) : this.state.editor === Editors.TEXT_EDITOR ? (
             <TextEditor
@@ -369,7 +376,6 @@ class Main extends Component {
                 insertCDATA={this.insertCDATA}
                 insertPI={this.insertPI}
                 saveText={this.saveText}
-                clearEditor={this.clearEditor}
                 setEdited={this.setEdited}
                 isEdited={this.state.isEdited}
                 setTwoLines={this.setTwoLines}
@@ -379,6 +385,15 @@ class Main extends Component {
                 selectMode={this.state.selectMode}
                 setSelectMode={this.setSelectMode}
                 docProps={docProps}
+
+
+                setEditor={this.setEditor}
+                clearEditor={this.clearEditor}
+                setSelected={this.setSelected}
+                writeable={this.state.writeable}
+                setPath={this.setPath}
+                editor={this.state.editor}
+                //page={this.props.page}
             />
         ) : this.state.editor === Editors.CDATA_EDITOR ? (
             <CDATAEditor
@@ -388,7 +403,6 @@ class Main extends Component {
                 pathRow={this.state.pathRow}
                 saveCDATA={this.saveCDATA}
                 unwrapNode={this.unwrapNode}
-                clearEditor={this.clearEditor}
                 setEdited={this.setEdited}
                 isEdited={this.state.isEdited}
                 setTwoLines={this.setTwoLines}
@@ -398,6 +412,14 @@ class Main extends Component {
                 selectMode={this.state.selectMode}
                 setSelectMode={this.setSelectMode}
                 docProps={docProps}
+
+                setEditor={this.setEditor}
+                clearEditor={this.clearEditor}
+                setSelected={this.setSelected}
+                writeable={this.state.writeable}
+                setPath={this.setPath}
+                editor={this.state.editor}
+                //page={this.props.page}
             />
         ) : this.state.editor === Editors.COMMENT_EDITOR ? (
             <CommentEditor
@@ -407,7 +429,6 @@ class Main extends Component {
                 pathRow={this.state.pathRow}
                 saveComment={this.saveComment}
                 unwrapNode={this.unwrapNode}
-                clearEditor={this.clearEditor}
                 setEdited={this.setEdited}
                 isEdited={this.state.isEdited}
                 setTwoLines={this.setTwoLines}
@@ -417,6 +438,15 @@ class Main extends Component {
                 selectMode={this.state.selectMode}
                 setSelectMode={this.setSelectMode}
                 docProps={docProps}
+
+
+                setEditor={this.setEditor}
+                clearEditor={this.clearEditor}
+                setSelected={this.setSelected}
+                writeable={this.state.writeable}
+                setPath={this.setPath}
+                editor={this.state.editor}
+                //page={this.props.page}
             />
         ) : this.state.editor === Editors.PI_EDITOR ? (
             <PIEditor
@@ -426,7 +456,6 @@ class Main extends Component {
                 pathRow={this.state.pathRow}
                 savePI={this.savePI}
                 unwrapNode={this.unwrapNode}
-                clearEditor={this.clearEditor}
                 setEdited={this.setEdited}
                 isEdited={this.state.isEdited}
                 setTwoLines={this.setTwoLines}
@@ -436,6 +465,15 @@ class Main extends Component {
                 setSelectMode={this.setSelectMode}
                 selectMode={this.state.selectMode}
                 docProps={docProps}
+
+
+                setEditor={this.setEditor}
+                clearEditor={this.clearEditor}
+                setSelected={this.setSelected}
+                writeable={this.state.writeable}
+                setPath={this.setPath}
+                editor={this.state.editor}
+                //page={this.props.page}
             />
         ) : this.state.editor === Editors.XML_DISPLAY ? (
             <XMLDisplay
@@ -450,11 +488,7 @@ class Main extends Component {
                 copyNodes={this.copyNodes}
                 deleteNodes={this.deleteNodes}
                 wrapNodes={this.wrapNodes}
-                setSelected={this.setSelected}
                 clearSelected={this.clearSelected}
-                setPath={this.setPath}
-                setEditor={this.setEditor}
-                clearEditor={this.clearEditor}
                 setEdited={this.setEdited}
                 isEdited={this.state.isEdited}
                 setTwoLines={this.setTwoLines}
@@ -464,10 +498,20 @@ class Main extends Component {
                 setSelectMode={this.setSelectMode}
                 selectMode={this.state.selectMode}
                 docProps={docProps}
+
+
+                setEditor={this.setEditor}
+                clearEditor={this.clearEditor}
+                setSelected={this.setSelected}
+                writeable={this.state.writeable}
+                setPath={this.setPath}
+                editor={this.state.editor}
+                //page={this.props.page}
             />
         ) : (
             <Display
-                setEditor={this.setEditor}
+                data={this.state.root}
+                path={this.state.path}
                 docProps={docProps}
                 setTwoLines={this.setTwoLines}
                 showClosingTags={this.showClosingTags}
@@ -475,8 +519,16 @@ class Main extends Component {
                 twoLines={this.state.twoLines}
                 setSelectMode={this.setSelectMode}
                 selectMode={this.state.selectMode}
-                isEdited={this.state.isEdited}
-                {...this.state}
+                pathRow={this.state.pathRow}
+
+
+                setEditor={this.setEditor}
+                clearEditor={this.clearEditor}
+                setSelected={this.setSelected}
+                writeable={this.state.writeable}
+                setPath={this.setPath}
+                editor={this.state.editor}
+                //page={this.props.page}
             />
         )
     }

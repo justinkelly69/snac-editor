@@ -2,6 +2,7 @@ import React from 'react'
 import { ChildElements } from '..'
 
 const XMLBody = props =>
+
     <ChildElements
         path={[]}
         spacing={props.spacing}

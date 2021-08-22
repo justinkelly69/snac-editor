@@ -40,6 +40,8 @@ const DisplayHeader = props => {
                             }}
                         />
                     </Panels.PanelItem>
+
+
                 </> :
                 <>
                     {props.Header}
