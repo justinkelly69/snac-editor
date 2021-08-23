@@ -20,15 +20,14 @@ class Main extends Component {
             selectedPaths: [],
             selectedNodes: [],
             clipboard: [],
-            writeable: true,
             twoLines: false,
             closingTags: false,
             selectMode: false,
+            isSelectable: true,
         }
         this.setEditor = this.setEditor.bind(this)
         this.clearEditor = this.clearEditor.bind(this)
         this.setEdited = this.setEdited.bind(this)
-        this.setWriteable = this.setWriteable.bind(this)
         this.setPath = this.setPath.bind(this)
         this.saveNode = this.saveNode.bind(this)
         this.unwrapNode = this.unwrapNode.bind(this)
@@ -51,39 +50,7 @@ class Main extends Component {
         this.setTwoLines = this.setTwoLines.bind(this)
         this.showClosingTags = this.showClosingTags.bind(this)
         this.setSelectMode = this.setSelectMode.bind(this)
-    }
-
-    setEditor1(props) {
-        if (props.data) {
-            if (this.isEditor(props.editor)) {
-                this.clearEditor()
-                this.clearSelected(() => {
-                    this.setState({
-                        data: SNAC.clone(props.data),
-                        editor: props.editor,
-                        path: props.path,
-                    })
-                })
-            }
-            else {
-                if (this.isDisplay(props.editor) && props.selectedNodes.length === 0) {
-                    this.clearEditor()
-                }
-                else {
-                    this.setState(() => ({
-                        root: props.root,
-                        editor: Editors.XML_DISPLAY,
-                        path: props.path,
-                        prefix: props.prefix,
-                        selectedPaths: props.selectedPaths,
-                        selectedNodes: props.selectedNodes,
-                    }))
-                }
-            }
-        }
-        else {
-            this.clearEditor()
-        }
+        this.setSelectable = this.setSelectable.bind(this)
     }
 
     setEditor(props) {
@@ -148,20 +115,18 @@ class Main extends Component {
 
     setSelectMode() {
         if (!this.state.selectMode) {
-            this.setState({ editor: Editors.XML_DISPLAY })
+            this.setState({ 
+                editor: Editors.XML_DISPLAY,
+                //selectMode: !this.state.selectMode
+             })
         }
         this.setState({ selectMode: !this.state.selectMode })
     }
 
-    setWriteable() {
-        this.clearSelected(() => {
-            this.setState({
-                writeable: !this.state.writeable,
-                editor: 'Z',
-                data: {}
-            })
-        })
+    setSelectable(isSelectable) {
+        this.setState({ isSelectable: isSelectable })
     }
+
 
     setPath(pathDisplay, atts = null) {
         this.setState({ pathDisplay: pathDisplay }, () => {
@@ -334,7 +299,6 @@ class Main extends Component {
             writeable: this.state.writeable,
             setPath: this.setPath,
             editor: this.state.editor,
-            //page: this.props.page,
         }
 
         return this.state.editor === Editors.NODE_EDITOR ? (
@@ -354,14 +318,14 @@ class Main extends Component {
                 selectMode={this.state.selectMode}
                 setSelectMode={this.setSelectMode}
                 docProps={docProps}
-
+                setSelectable={this.setSelectable}
+                isSelectable={this.state.isSelectable}
                 setEditor={this.setEditor}
                 clearEditor={this.clearEditor}
                 setSelected={this.setSelected}
-                writeable={this.state.writeable}
                 setPath={this.setPath}
                 editor={this.state.editor}
-                //page={this.props.page}
+                writeable={true}
             />
         ) : this.state.editor === Editors.TEXT_EDITOR ? (
             <TextEditor
@@ -386,14 +350,14 @@ class Main extends Component {
                 setSelectMode={this.setSelectMode}
                 docProps={docProps}
 
-
+                setSelectable={this.setSelectable}
+                isSelectable={this.state.isSelectable}
                 setEditor={this.setEditor}
                 clearEditor={this.clearEditor}
                 setSelected={this.setSelected}
-                writeable={this.state.writeable}
                 setPath={this.setPath}
                 editor={this.state.editor}
-                //page={this.props.page}
+                writeable={true}
             />
         ) : this.state.editor === Editors.CDATA_EDITOR ? (
             <CDATAEditor
@@ -412,14 +376,14 @@ class Main extends Component {
                 selectMode={this.state.selectMode}
                 setSelectMode={this.setSelectMode}
                 docProps={docProps}
-
+                setSelectable={this.setSelectable}
+                isSelectable={this.state.isSelectable}
                 setEditor={this.setEditor}
                 clearEditor={this.clearEditor}
                 setSelected={this.setSelected}
-                writeable={this.state.writeable}
                 setPath={this.setPath}
                 editor={this.state.editor}
-                //page={this.props.page}
+                writeable={true}
             />
         ) : this.state.editor === Editors.COMMENT_EDITOR ? (
             <CommentEditor
@@ -439,14 +403,14 @@ class Main extends Component {
                 setSelectMode={this.setSelectMode}
                 docProps={docProps}
 
-
+                setSelectable={this.setSelectable}
+                isSelectable={this.state.isSelectable}
                 setEditor={this.setEditor}
                 clearEditor={this.clearEditor}
                 setSelected={this.setSelected}
-                writeable={this.state.writeable}
                 setPath={this.setPath}
                 editor={this.state.editor}
-                //page={this.props.page}
+                writeable={true}
             />
         ) : this.state.editor === Editors.PI_EDITOR ? (
             <PIEditor
@@ -466,14 +430,14 @@ class Main extends Component {
                 selectMode={this.state.selectMode}
                 docProps={docProps}
 
-
+                setSelectable={this.setSelectable}
+                isSelectable={this.state.isSelectable}
                 setEditor={this.setEditor}
                 clearEditor={this.clearEditor}
                 setSelected={this.setSelected}
-                writeable={this.state.writeable}
                 setPath={this.setPath}
                 editor={this.state.editor}
-                //page={this.props.page}
+                writeable={true}
             />
         ) : this.state.editor === Editors.XML_DISPLAY ? (
             <XMLDisplay
@@ -484,33 +448,39 @@ class Main extends Component {
                 prefix={this.state.prefix}
                 selectedPaths={this.state.selectedPaths}
                 selectedNodes={this.state.selectedNodes}
+                isEdited={this.state.isEdited}
+                twoLines={this.state.twoLines}
+                closingTags={this.state.closingTags}
+                selectMode={this.state.selectMode}
+
                 cutNodes={this.cutNodes}
                 copyNodes={this.copyNodes}
                 deleteNodes={this.deleteNodes}
                 wrapNodes={this.wrapNodes}
                 clearSelected={this.clearSelected}
                 setEdited={this.setEdited}
-                isEdited={this.state.isEdited}
                 setTwoLines={this.setTwoLines}
-                twoLines={this.state.twoLines}
                 showClosingTags={this.showClosingTags}
-                closingTags={this.state.closingTags}
                 setSelectMode={this.setSelectMode}
-                selectMode={this.state.selectMode}
                 docProps={docProps}
 
-
+                setSelectable={this.setSelectable}
+                isSelectable={this.state.isSelectable}
                 setEditor={this.setEditor}
                 clearEditor={this.clearEditor}
                 setSelected={this.setSelected}
-                writeable={this.state.writeable}
                 setPath={this.setPath}
                 editor={this.state.editor}
-                //page={this.props.page}
+                writeable={true}
             />
+
+
+
+
         ) : (
             <Display
-                data={this.state.root}
+                root={this.state.data}
+                data={this.state.data}
                 path={this.state.path}
                 docProps={docProps}
                 setTwoLines={this.setTwoLines}
@@ -520,15 +490,23 @@ class Main extends Component {
                 setSelectMode={this.setSelectMode}
                 selectMode={this.state.selectMode}
                 pathRow={this.state.pathRow}
+                cutNodes={this.cutNodes}
+                copyNodes={this.copyNodes}
+                deleteNodes={this.deleteNodes}
+                wrapNodes={this.wrapNodes}
+                clearSelected={this.clearSelected}
+                setEdited={this.setEdited}
 
-
+                writeable={false}
+                setSelectable={this.setSelectable}
+                isSelectable={this.state.isSelectable}
                 setEditor={this.setEditor}
                 clearEditor={this.clearEditor}
                 setSelected={this.setSelected}
-                writeable={this.state.writeable}
                 setPath={this.setPath}
                 editor={this.state.editor}
-                //page={this.props.page}
+                selectedNodes={this.state.selectedNodes}
+            //page={this.props.page}
             />
         )
     }

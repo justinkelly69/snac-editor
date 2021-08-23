@@ -4,6 +4,8 @@ import { TextView, Prefix, Brackets, Settings, Sections, Fields, Symbols, Links 
 const TextElement = props => {
     const [tOpen, setTOpen] = useState(false)
 
+
+
     return (
         <Sections.TextSection selected={props.writeable && props.data.q}>
             {props.writeable || props.data.T.trim().length > 0 ?
@@ -11,8 +13,10 @@ const TextElement = props => {
                     <Prefix
                         openTag={true}
                         twoLines={Settings.PREFIX_TWO_LINES}
+                        isSelectable={props.isSelectable}
                         {...props}
                     />
+
                     {props.showSwitches &&
                         <Links.NodeLink onClick={() => setTOpen(!tOpen)}>
                             {tOpen ?
@@ -21,6 +25,7 @@ const TextElement = props => {
                             }
                         </Links.NodeLink>
                     }
+
                     <Fields.TextBody>
                         {props.writeable && !tOpen ?
                             <Brackets.TextOpenBracket /> :

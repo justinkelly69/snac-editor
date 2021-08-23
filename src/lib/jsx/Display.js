@@ -5,6 +5,7 @@ import {
 
 const Display = props => {
 
+
     return (
         <Sections.MainContainer>
 
@@ -18,6 +19,22 @@ const Display = props => {
                 Header={props.Header}
                 setEditor={props.setEditor}
                 isEdited={props.isEdited}
+
+                cutNodes={props.cutNodes}
+                copyNodes={props.copyNodes}
+                deleteNodes={props.deleteNodes}
+                wrapNodes={props.wrapNodes}
+                clearSelected={props.clearSelected}
+                setEdited={props.setEdited}
+                selectedNodes={props.selectedNodes}
+                setSelectable={props.setSelectable}
+                isSelectable={props.isSelectable}
+
+                clearEditor={props.clearEditor}
+                setSelected={props.setSelected}
+                writeable={props.writeable}
+                setPath={props.setPath}
+                editor={props.editor}
             />
 
             <Sections.VerticalColumns>
@@ -29,19 +46,22 @@ const Display = props => {
                         setEditor={props.docProps.setEditor}
                         clearEditor={props.docProps.clearEditor}
                         setSelected={props.docProps.setSelected}
-                        writeable={props.docProps.writeable}
+                        writeable={props.writeable}
                         setPath={props.docProps.setPath}
-                        editor={props.docProps.editor}
+                        editor={props.docProps.editor} 
 
-                        /* data={props.data}
+                        /* root={props.root}
+                        data={props.data}
                         setEditor={props.setEditor}
                         clearEditor={props.clearEditor}
                         setSelected={props.setSelected}
                         writeable={props.writeable}
                         setPath={props.setPath}
-                        editor={props.editor} */
+                        editor={props.editor}*/
 
 
+                        setSelectable={props.setSelectable}
+                        isSelectable={props.isSelectable}
                         twoLines={props.twoLines}
                         closingTags={props.closingTags}
                         selectMode={props.selectMode}

@@ -3,6 +3,7 @@ import { Editors } from '../helpers/constants'
 import { Fields } from '..'
 
 const NameText = props =>
+
     <Fields.Name className={props.className}
         onClick={() => {
             props.writeable && props.setEditor({

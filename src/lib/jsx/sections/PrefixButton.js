@@ -4,7 +4,8 @@ import { Buttons, Editors } from '..'
 const PrefixButton = props =>
     <>
         {props.writeable ?
-            <Buttons.SelectXML openTag={props.openTag}
+            <Buttons.SelectXML
+                openTag={props.openTag}
                 onClick={() => {
                     props.openTag && props.setSelected(props.path, (root, selectedPaths, selectedNodes) => {
                         props.setEditor({

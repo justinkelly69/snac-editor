@@ -1,34 +1,25 @@
-import React, { useState } from 'react'
-import { Display, Constants, XMLHeader, XMLBody } from '.'
+import React from 'react'
+import { Display, XMLBody } from '.'
 
 const XMLDisplay = props => {
-    const [mode, setMode] = useState(Constants.NO_SELECTION)
-    const [newNS, setNewNS] = useState("")
-    const [newName, setNewName] = useState("")
-    let spacing = 0
 
-    const Header = props.selectedNodes.length > 0 ? (
-        <XMLHeader
-            mode={mode}
-            setMode={setMode}
-            newNS={newNS}
-            setNewNS={setNewNS}
-            newName={newName}
-            setNewName={setNewName}
-            {...props}
-        />
-    ) : null
+    const spacing = 0
+
+
 
     const Body = (
         <XMLBody
             spacing={spacing}
             elements={props.selectedNodes}
+            setSelectable={props.setSelectable}
+            isSelectable={props.isSelectable}
+            writeable={false}
             {...props}
         />
     )
 
     return (
-        <Display Header={Header} Body={Body} {...props} />
+        <Display Header={null} Body={Body} {...props} />
     )
 }
 

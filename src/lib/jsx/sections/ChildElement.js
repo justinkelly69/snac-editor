@@ -15,6 +15,8 @@ const ChildElement = props => {
     const prefixArray = SNAC.getPrefixArray(prefix, props.prefixEnabled)
     const spacing = props.spacing + 1
 
+
+
     return (
         Child !== null ?
             <Child
@@ -36,6 +38,8 @@ const ChildElement = props => {
                 selectMode={props.selectMode}
                 twoLines={props.twoLines}
                 isEdited={props.isEdited}
+                isSelectable={props.isSelectable}
+                setSelectable={props.setSelectable}
             /> :
             null
     )

@@ -9,6 +9,7 @@ const XMLBody = props =>
         elements={props.selectedNodes}
         prefixEnabled={false}
         showClosingTag={true}
+        writeable={props.writeable}
         {...props}
     />
 

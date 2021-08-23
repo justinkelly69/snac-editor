@@ -29,9 +29,10 @@ const NewAttribute = (props) =>
                         {Labels.SaveAttribute}
                     </Buttons.StandardButton>
 
-                    <Buttons.StandardButton onClick={() => {
-                        props.newFieldsOpenClose(false)
-                    }}>
+                    <Buttons.StandardButton
+                        onClick={() => {
+                            props.newFieldsOpenClose(false)
+                        }}>
                         {Labels.CancelAttribute}
                     </Buttons.StandardButton>
                 </> :

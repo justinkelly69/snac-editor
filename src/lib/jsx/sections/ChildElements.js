@@ -4,8 +4,6 @@ import * as SNAC from 'snac'
 
 const ChildElements = props => {
 
-    console.log('path', props.path)
-
     return (
         <>
             {props.elements.map((element, index) =>
@@ -31,6 +29,8 @@ const ChildElements = props => {
                     selectMode={props.selectMode}
                     twoLines={props.twoLines}
                     isEdited={props.isEdited}
+                    isSelectable={props.isSelectable}
+                    setSelectable={props.setSelectable}
                 />
             )}
         </>

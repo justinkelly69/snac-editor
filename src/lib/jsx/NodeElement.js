@@ -14,6 +14,9 @@ const NodeElement = props => {
                         cOpen={cOpen}
                         setCOpen={setCOpen}
                         isEdited={props.isEdited}
+                        isSelectable={props.isSelectable}
+                        setSelectable={props.setSelectable}
+                        writeable={props.writeable}
                         {...props}
                     />
                     <Attributes
@@ -30,14 +33,20 @@ const NodeElement = props => {
                     twoLines={props.twoLines}
                     selectMode={props.selectMode}
                     isEdited={props.isEdited}
+                    isSelectable={props.isSelectable}
+                    setSelectable={props.setSelectable}
+                    writeable={props.writeable}
                     {...props}
                 /> :
                 null
             }
-            {(props.closingTags || !props.writeable) && (props.path.length > 0 || props.data.N !== '@@@') ? // Closing XML Tag
+            {(props.path.length > 0 || props.data.N !== '@@@') && (props.closingTags || !props.writeable)  ? // Closing XML Tag
                 <NodeTag
                     openTag={false}
                     isEdited={props.isEdited}
+                    isSelectable={props.isSelectable}
+                    setSelectable={props.setSelectable}
+                    writeable={props.writeable}
                     {...props}
                 /> :
                 null

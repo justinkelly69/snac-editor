@@ -33,6 +33,7 @@ const Labels = {
     ClearXML: "Clear",
     DeleteXML: "Delete",
     WrapXML: "Wrap",
+    CancelXML: "Cancel",
     PIHeading: "PI",
     OneLine: "One Line",
     TwoLines: "Two Lines",

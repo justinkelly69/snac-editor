@@ -9,6 +9,7 @@ const PIElement = props => {
             <Prefix
                 openTag={true}
                 twoLines={Settings.PREFIX_TWO_LINES}
+                isSelectable={props.isSelectable}
                 {...props}
             />
             {props.showSwitches &&

@@ -5,6 +5,7 @@ const NodeTag = props =>
     <>
         <Prefix
             twoLines={props.twoLines}
+            isSelectable={props.isSelectable}
             {...props}
         />
 

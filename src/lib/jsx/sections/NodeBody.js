@@ -3,7 +3,9 @@ import * as SNAC from 'snac'
 import { EditAttributes, NewAttribute, Panels } from '..'
 
 export const NodeBody = props =>
+
     <Panels.PanelBody>
+
         <EditAttributes
             atts={props.atts}
             ns={props.newAttNS}
@@ -16,6 +18,7 @@ export const NodeBody = props =>
             markAttributeDeleted={props.markAttributeDeleted}
             {...props}
         />
+
         <NewAttribute
             atts={props.atts}
             isOpen={SNAC.attsOpen(props.atts)}
@@ -29,6 +32,7 @@ export const NodeBody = props =>
             name={props.newAttName}
             value={props.newAttValue}
         />
+        
     </Panels.PanelBody>
 
 export default NodeBody

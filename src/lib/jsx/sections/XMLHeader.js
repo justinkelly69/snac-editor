@@ -1,74 +1,113 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Buttons, Labels, Panels, Constants, NSNameTextInputs } from '..'
 
-const XMLHeader = props =>
-    <Panels.PanelHeader>
-        {props.mode === Constants.NO_SELECTION ? (
-            <>
-                <Panels.PanelItemRight>
-                    <Buttons.StandardButton onClick={() => {
-                        props.cutNodes()
-                        props.clearEditor()
-                    }}>
-                        {Labels.CutXML}
-                    </Buttons.StandardButton>
-                </Panels.PanelItemRight>
+const XMLHeader = props => {
 
-                <Panels.PanelItemRight>
-                    <Buttons.StandardButton onClick={() => {
-                        props.copyNodes()
-                        props.clearEditor()
-                    }}>
-                        {Labels.CopyXML}
-                    </Buttons.StandardButton>
-                </Panels.PanelItemRight>
 
-                <Panels.PanelItemRight>
-                    <Buttons.StandardButton onClick={() =>
-                        props.setMode(Constants.WRAP)
-                    }>
-                        {Labels.WrapXML}
-                    </Buttons.StandardButton>
-                </Panels.PanelItemRight>
 
-                <Panels.PanelItemRight>
-                    <Buttons.StandardButton onClick={() => {
-                        props.deleteNodes()
-                        props.clearEditor()
-                    }}>
-                        {Labels.DeleteXML}
-                    </Buttons.StandardButton>
-                </Panels.PanelItemRight>
+    const [mode, setMode] = useState(Constants.NO_SELECTION)
+    const [newNS, setNewNS] = useState("")
+    const [newName, setNewName] = useState("")
+    const disabled = props.selectedNodes.length === 0
 
-                <Panels.PanelItemRight>
-                    <Buttons.StandardButton onClick={() => {
-                        props.clearSelected(f => f)
-                        props.clearEditor()
-                    }}>
-                        {Labels.ClearXML}
-                    </Buttons.StandardButton>
-                </Panels.PanelItemRight>
-            </>
-        ) : props.mode === Constants.WRAP ? (
-            <>
-                <Panels.PanelItemRight>
-                    <NSNameTextInputs
-                        setNewNS={props.setNewNS}
-                        setNewName={props.setNewName}
-                    />
-                </Panels.PanelItemRight>
+    return (
+        <Panels.PanelHeader>
+            {mode === Constants.NO_SELECTION ? (
+                <>
+                    <Panels.PanelItem>
+                        <Buttons.StandardButton
+                            disabled={disabled}
+                            onClick={() => {
+                                props.cutNodes()
+                                props.clearEditor()
+                            }}>
+                            {Labels.CutXML}
+                        </Buttons.StandardButton>
+                    </Panels.PanelItem>
 
-                <Panels.PanelItemRight>
-                    <Buttons.StandardButton onClick={() => {
-                        props.wrapNodes(props.newNS, props.newName)
-                        props.clearEditor()
-                    }}>
-                        {Labels.WrapXML}
-                    </Buttons.StandardButton>
-                </Panels.PanelItemRight>
-            </>
-        ) : null
-        }
-    </Panels.PanelHeader>
+                    <Panels.PanelItem>
+                        <Buttons.StandardButton
+                            disabled={disabled}
+                            onClick={() => {
+                                props.copyNodes()
+                                props.clearEditor()
+                            }}>
+                            {Labels.CopyXML}
+                        </Buttons.StandardButton>
+                    </Panels.PanelItem>
+
+                    <Panels.PanelItem>
+                        <Buttons.StandardButton
+                            disabled={disabled}
+                            onClick={() => {
+                                setMode(Constants.WRAP)
+                                props.setSelectable(false)
+                            }}>
+                            {Labels.WrapXML}
+                        </Buttons.StandardButton>
+                    </Panels.PanelItem>
+
+                    <Panels.PanelItem>
+                        <Buttons.StandardButton
+                            disabled={disabled}
+                            onClick={() => {
+                                props.deleteNodes()
+                                props.clearEditor()
+                            }}>
+                            {Labels.DeleteXML}
+                        </Buttons.StandardButton>
+                    </Panels.PanelItem>
+
+                    <Panels.PanelItem>
+                        <Buttons.StandardButton
+                            disabled={disabled}
+                            onClick={() => {
+                                props.clearSelected(f => f)
+                                props.clearEditor()
+                            }}>
+                            {Labels.ClearXML}
+                        </Buttons.StandardButton>
+                    </Panels.PanelItem>
+                </>
+            ) : mode === Constants.WRAP ? (
+                <>
+                    <Panels.PanelItem>
+                        <NSNameTextInputs
+                            setNewNS={setNewNS}
+                            setNewName={setNewName}
+                            setEdited={props.setEdited}
+                        />
+                    </Panels.PanelItem>
+
+                    <Panels.PanelItem>
+                        <Buttons.StandardButton
+                            onClick={() => {
+                                props.wrapNodes(newNS, newName)
+                                props.clearEditor()
+                                props.setSelectable(true)
+                            }}>
+                            {Labels.WrapXML}
+                        </Buttons.StandardButton>
+                    </Panels.PanelItem>
+
+                    <Panels.PanelItem>
+                        <Buttons.StandardButton
+                            onClick={() => {
+                                props.clearEditor()
+                                props.setSelectable(true)
+                            }}>
+                            {Labels.CancelXML}
+                        </Buttons.StandardButton>
+                    </Panels.PanelItem>
+
+                </>
+            ) : null
+            }
+
+            <Panels.PanelSpacing />
+
+        </Panels.PanelHeader>
+    )
+}
 
 export default XMLHeader
