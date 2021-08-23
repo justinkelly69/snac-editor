@@ -16,9 +16,9 @@ const NSNameLabels = props => {
             {props.data.S ?
                 <>
                     <Fields.NS
-                        onClick={() => !props.isEdited && !props.selectMode && clickNode()}
-                        onMouseOver={() => { props.setPath(props.path) }}
-                        onMouseOut={() => { props.setPath([]) }} >
+                        onClick={() => props.writeable && !props.isEdited && !props.selectMode && clickNode()}
+                        onMouseOver={() => { props.writeable && props.setPath(props.path) }}
+                        onMouseOut={() => { props.writeable && props.setPath([]) }} >
                         {props.data.S}
                     </Fields.NS>
                     <Brackets.NodeNSSeparator />
@@ -28,8 +28,8 @@ const NSNameLabels = props => {
 
             <Fields.Name
                 onClick={() => !props.isEdited && !props.selectMode && clickNode()}
-                onMouseOver={() => { props.setPath(props.path) }}
-                onMouseOut={() => { props.setPath([]) }} >
+                onMouseOver={() => { props.writeable && props.setPath(props.path) }}
+                onMouseOut={() => { props.writeable && props.setPath([]) }} >
                 {props.data.N}
             </Fields.Name>
         </>

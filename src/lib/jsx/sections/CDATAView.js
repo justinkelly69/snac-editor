@@ -6,7 +6,7 @@ const CDATAView = (props) =>
 
     <Fields.CDATABody
         onClick={() => {
-            !props.isEdited && !props.selectMode && props.writeable && props.setEditor({
+            props.writeable && !props.isEdited && !props.selectMode && props.setEditor({
                 data: props.data,
                 editor: Editors.CDATA_EDITOR,
                 path: props.path
@@ -14,11 +14,11 @@ const CDATAView = (props) =>
         }}
 
         onMouseOver={() => {
-            props.setPath(props.path)
+            props.writeable && props.setPath(props.path)
         }}
 
         onMouseOut={() => {
-            props.setPath([])
+            props.writeable && props.setPath([])
         }}>
 
         {!props.showSwitches ?

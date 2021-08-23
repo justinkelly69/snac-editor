@@ -8,12 +8,12 @@ const AttributeNSName = props =>
             <>
                 <Fields.AttributeNS
                     onMouseOver={() => {
-                        props.setPath(
+                        props.writeable && props.setPath(
                             props.path,
                             SNAC.getAttribute(props.ns, props.name, props.data.A)
                         )
                     }}
-                    onMouseOut={() => { props.setPath([]) }}>
+                    onMouseOut={() => { props.writeable && props.setPath([]) }}>
                     {props.ns}
                 </Fields.AttributeNS>
                 <Brackets.AttributeNSSeparator />
@@ -22,12 +22,12 @@ const AttributeNSName = props =>
         }
         <Fields.AttributeName
             onMouseOver={() => {
-                props.setPath(
+                props.writeable && props.setPath(
                     props.path,
                     SNAC.getAttribute(props.ns, props.name, props.data.A)
                 )
             }}
-            onMouseOut={() => { props.setPath([]) }}>
+            onMouseOut={() => { props.writeable && props.setPath([]) }}>
             {props.name}
         </Fields.AttributeName>
     </>

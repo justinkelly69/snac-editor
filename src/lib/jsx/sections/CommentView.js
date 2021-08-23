@@ -5,17 +5,17 @@ import { Editors, Fields, Sizes, Symbols, TextViews, Prefix, Panels } from '..'
 const CommentView = (props) =>
     <Fields.CommentBody
         onClick={() => {
-            !props.isEdited && !props.selectMode && props.writeable && props.setEditor({
+            props.writeable && !props.isEdited && !props.selectMode && props.setEditor({
                 data: props.data,
                 editor: Editors.COMMENT_EDITOR,
                 path: props.path
             })
         }}
         onMouseOver={() => {
-            props.setPath(props.path)
+            props.writeable && props.setPath(props.path)
         }}
         onMouseOut={() => {
-            props.setPath([])
+            props.writeable && props.setPath([])
         }}>
         {!props.showSwitches ?
             SNAC.escapeComment(props.data.M) :

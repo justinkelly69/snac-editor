@@ -142,6 +142,7 @@ class Main extends Component {
                 //isEdited: true,
                 selectMode: false,
             })
+            this.clearSelected(f=>f)
         }
     }
 
