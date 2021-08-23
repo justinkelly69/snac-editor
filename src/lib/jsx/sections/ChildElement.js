@@ -15,7 +15,7 @@ const ChildElement = props => {
     const prefixArray = SNAC.getPrefixArray(prefix, props.prefixEnabled)
     const spacing = props.spacing + 1
 
-
+    //console.log(props.type, props.path)
 
     return (
         Child !== null ?

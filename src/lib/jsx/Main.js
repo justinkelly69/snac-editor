@@ -12,6 +12,7 @@ class Main extends Component {
             data: SNAC.xml2snac(this.props.xml),
             root: SNAC.xml2snac(this.props.xml),
             editor: "",
+            prevEditor: "",
             isEdited: false,
             path: [],
             pathDisplay: [],
@@ -54,25 +55,27 @@ class Main extends Component {
     }
 
     setEditor(props) {
+        const prevEditor = this.state.editor
         props.data ? (
             this.isEditor(props.editor) ? (
                 this.clearEditor(this.clearSelected(() => {
                     this.setState({
                         data: SNAC.clone(props.data),
                         editor: props.editor,
+                        prevEditor: prevEditor,
                         path: props.path,
                     })
                 }))) :
                 this.isDisplay(props.editor) && props.selectedNodes.length === 0 ?
                     this.clearEditor() :
-                    this.setState(() => ({
+                    this.setState({
                         root: props.root,
                         editor: Editors.XML_DISPLAY,
                         path: props.path,
                         prefix: props.prefix,
                         selectedPaths: props.selectedPaths,
                         selectedNodes: props.selectedNodes,
-                    }))) :
+                    })) :
             this.clearEditor()
     }
 
@@ -92,13 +95,15 @@ class Main extends Component {
 
     clearEditor(next) {
         this.setState({
-            data: {},
+            //data: {},
             editor: '',
             prefix: '',
             path: '',
             selectedPaths: [],
             selectedNodes: []
-        }, next && next())
+        }, () => {
+            next && next()
+        })
     }
 
     setEdited(isEdited) {
@@ -113,14 +118,31 @@ class Main extends Component {
         this.setState({ closingTags: !this.state.closingTags })
     }
 
-    setSelectMode() {
+    setSelectMode1() {
         if (!this.state.selectMode) {
-            this.setState({ 
+            this.setState({
                 editor: Editors.XML_DISPLAY,
                 //selectMode: !this.state.selectMode
-             })
+            })
         }
         this.setState({ selectMode: !this.state.selectMode })
+    }
+
+    setSelectMode(selectMode) {
+        if (selectMode === true) {
+            this.setState({
+                editor: Editors.XML_DISPLAY,
+                isSelectable: true,
+                selectMode: true
+            })
+        }
+        else {
+            this.setState({
+                editor: this.state.prevEditor,
+                //isEdited: true,
+                selectMode: false,
+            })
+        }
     }
 
     setSelectable(isSelectable) {
@@ -296,7 +318,7 @@ class Main extends Component {
             setEditor: this.setEditor,
             clearEditor: this.clearEditor,
             setSelected: this.setSelected,
-            writeable: this.state.writeable,
+            //writeable: this.state.writeable,
             setPath: this.setPath,
             editor: this.state.editor,
         }
@@ -506,7 +528,6 @@ class Main extends Component {
                 setPath={this.setPath}
                 editor={this.state.editor}
                 selectedNodes={this.state.selectedNodes}
-            //page={this.props.page}
             />
         )
     }

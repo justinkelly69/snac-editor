@@ -2,9 +2,8 @@ import React, { useState } from 'react'
 import { TextView, Prefix, Brackets, Settings, Sections, Fields, Symbols, Links } from '.'
 
 const TextElement = props => {
+
     const [tOpen, setTOpen] = useState(false)
-
-
 
     return (
         <Sections.TextSection selected={props.writeable && props.data.q}>

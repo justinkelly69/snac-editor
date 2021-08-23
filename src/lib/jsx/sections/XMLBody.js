@@ -9,8 +9,8 @@ const XMLBody = props =>
         elements={props.selectedNodes}
         prefixEnabled={false}
         showClosingTag={true}
-        writeable={props.writeable}
-        {...props}
+        writeable={false}
+        prefix={props.prefix}
     />
 
 export default XMLBody

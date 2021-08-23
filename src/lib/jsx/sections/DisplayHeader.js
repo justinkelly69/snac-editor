@@ -14,7 +14,7 @@ const DisplayHeader = props => {
                     label={props.selectMode ? Labels.EditMode : Labels.SelectMode}
                     checked={props.selectMode}
                     onChange={() => {
-                        props.setSelectMode(props.selectMode)
+                        props.setSelectMode(!props.selectMode)
                     }}
                 />
             </Panels.PanelItem>
@@ -51,7 +51,6 @@ const DisplayHeader = props => {
                         setEditor={props.setEditor}
                         clearEditor={props.clearEditor}
                         setSelected={props.setSelected}
-                        writeable={props.writeable}
                         setPath={props.setPath}
                         editor={props.editor}
                         selectedNodes={props.selectedNodes}

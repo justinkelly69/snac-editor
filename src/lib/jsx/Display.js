@@ -46,9 +46,9 @@ const Display = props => {
                         setEditor={props.docProps.setEditor}
                         clearEditor={props.docProps.clearEditor}
                         setSelected={props.docProps.setSelected}
-                        writeable={props.writeable}
+                        writeable={true}
                         setPath={props.docProps.setPath}
-                        editor={props.docProps.editor} 
+                        editor={props.docProps.editor}
 
                         /* root={props.root}
                         data={props.data}

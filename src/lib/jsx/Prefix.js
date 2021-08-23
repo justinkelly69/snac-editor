@@ -4,7 +4,6 @@ import * as SNAC from 'snac'
 
 const Prefix = props => {
 
-
     return (
         <>
             {props.prefixEnabled ? (
@@ -13,7 +12,8 @@ const Prefix = props => {
                         <>
                             <PrefixButton
                                 openTag={false}
-                                writeable={props.writeable} />
+                                writeable={props.writeable}
+                            />
 
                             <Panels.Prefix>
                                 {SNAC.getPrefixString(
@@ -35,7 +35,7 @@ const Prefix = props => {
                         setEditor={props.setEditor}
                         setSelected={props.setSelected}
                     />
-                    {/* <PrefixButton {...props} /> */}
+
                     <Panels.Prefix>
                         {SNAC.getPrefixString(
                             props.prefixArray,

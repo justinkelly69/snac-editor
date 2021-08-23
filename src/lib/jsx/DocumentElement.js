@@ -3,8 +3,6 @@ import { NodeElement } from '.'
 
 const DocumentElement = props => {
 
-
-
     return (
         <NodeElement
             prefixEnabled={true}
@@ -19,11 +17,7 @@ const DocumentElement = props => {
             isEdited={props.isEdited}
             isSelectable={props.isSelectable}
             setSelectable={props.setSelectable}
-            writeable={true}
-
-
-
-
+            writeable={props.writeable}
             {...props}
         />
     )

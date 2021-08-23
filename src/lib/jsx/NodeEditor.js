@@ -118,6 +118,7 @@ export const NodeEditor = props => {
             Header={Header}
             Body={Body}
             selectMode={props.selectMode}
+            //writeable={props.writeable}
             {...props}
         />
     )

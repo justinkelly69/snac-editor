@@ -27,6 +27,7 @@ const CommentEditor = props => {
             Header={Header}
             Body={Body}
             selectMode={props.selectMode}
+            //writeable={props.writeable}
             {...props}
         />
     )

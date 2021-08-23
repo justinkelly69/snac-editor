@@ -5,21 +5,19 @@ const XMLDisplay = props => {
 
     const spacing = 0
 
-
-
     const Body = (
         <XMLBody
             spacing={spacing}
             elements={props.selectedNodes}
             setSelectable={props.setSelectable}
             isSelectable={props.isSelectable}
-            writeable={false}
+            writeable={props.writeable}
             {...props}
         />
     )
 
     return (
-        <Display Header={null} Body={Body} {...props} />
+        <Display Body={Body} {...props} />
     )
 }
 

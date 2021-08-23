@@ -6,6 +6,8 @@ const NodeTag = props =>
         <Prefix
             twoLines={props.twoLines}
             isSelectable={props.isSelectable}
+            openTag={props.openTag}
+            selectMode={props.selectMode}
             {...props}
         />
 
