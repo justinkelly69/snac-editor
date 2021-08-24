@@ -3,8 +3,6 @@ import { Buttons, Labels, Panels, Constants, NSNameTextInputs } from '..'
 
 const XMLHeader = props => {
 
-
-
     const [mode, setMode] = useState(Constants.NO_SELECTION)
     const [newNS, setNewNS] = useState("")
     const [newName, setNewName] = useState("")
@@ -20,6 +18,7 @@ const XMLHeader = props => {
                             onClick={() => {
                                 props.cutNodes()
                                 props.clearEditor()
+                                props.setSelectMode(false)
                             }}>
                             {Labels.CutXML}
                         </Buttons.StandardButton>
@@ -31,6 +30,7 @@ const XMLHeader = props => {
                             onClick={() => {
                                 props.copyNodes()
                                 props.clearEditor()
+                                props.setSelectMode(false)
                             }}>
                             {Labels.CopyXML}
                         </Buttons.StandardButton>
@@ -53,6 +53,7 @@ const XMLHeader = props => {
                             onClick={() => {
                                 props.deleteNodes()
                                 props.clearEditor()
+                                props.setSelectMode(false)
                             }}>
                             {Labels.DeleteXML}
                         </Buttons.StandardButton>
@@ -64,6 +65,7 @@ const XMLHeader = props => {
                             onClick={() => {
                                 props.clearSelected(f => f)
                                 props.clearEditor()
+                                props.setSelectMode(false)
                             }}>
                             {Labels.ClearXML}
                         </Buttons.StandardButton>
@@ -85,6 +87,7 @@ const XMLHeader = props => {
                                 props.wrapNodes(newNS, newName)
                                 props.clearEditor()
                                 props.setSelectable(true)
+                                props.setSelectMode(false)
                             }}>
                             {Labels.WrapXML}
                         </Buttons.StandardButton>
@@ -93,8 +96,9 @@ const XMLHeader = props => {
                     <Panels.PanelItem>
                         <Buttons.StandardButton
                             onClick={() => {
-                                props.clearEditor()
+                                //props.clearEditor()
                                 props.setSelectable(true)
+                                setMode(Constants.NO_SELECTION)
                             }}>
                             {Labels.CancelXML}
                         </Buttons.StandardButton>
