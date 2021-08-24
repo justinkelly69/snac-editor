@@ -21,7 +21,6 @@ const CommentEditor = props => {
             setEdited={props.setEdited}
         />
 
-
     return (
         <Display
             Header={Header}

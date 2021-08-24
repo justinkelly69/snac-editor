@@ -50,8 +50,8 @@ const Display = props => {
                         //setPath={props.docProps.setPath}
                         editor={props.docProps.editor}
 
-                        /* root={props.root}
-                        data={props.data}
+                        root={props.root}
+                        /* data={props.data}
                         setEditor={props.setEditor}
                         clearEditor={props.clearEditor}
                         setSelected={props.setSelected}

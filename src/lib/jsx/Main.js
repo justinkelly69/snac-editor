@@ -339,7 +339,9 @@ class Main extends Component {
                 closingTags={this.state.closingTags}
                 selectMode={this.state.selectMode}
                 setSelectMode={this.setSelectMode}
+
                 docProps={docProps}
+
                 setSelectable={this.setSelectable}
                 isSelectable={this.state.isSelectable}
                 setEditor={this.setEditor}
@@ -370,6 +372,7 @@ class Main extends Component {
                 closingTags={this.state.closingTags}
                 selectMode={this.state.selectMode}
                 setSelectMode={this.setSelectMode}
+
                 docProps={docProps}
 
                 setSelectable={this.setSelectable}
@@ -397,7 +400,9 @@ class Main extends Component {
                 closingTags={this.state.closingTags}
                 selectMode={this.state.selectMode}
                 setSelectMode={this.setSelectMode}
+
                 docProps={docProps}
+
                 setSelectable={this.setSelectable}
                 isSelectable={this.state.isSelectable}
                 setEditor={this.setEditor}
@@ -423,6 +428,7 @@ class Main extends Component {
                 closingTags={this.state.closingTags}
                 selectMode={this.state.selectMode}
                 setSelectMode={this.setSelectMode}
+
                 docProps={docProps}
 
                 setSelectable={this.setSelectable}
@@ -450,6 +456,7 @@ class Main extends Component {
                 closingTags={this.state.closingTags}
                 setSelectMode={this.setSelectMode}
                 selectMode={this.state.selectMode}
+
                 docProps={docProps}
 
                 setSelectable={this.setSelectable}
@@ -484,6 +491,7 @@ class Main extends Component {
                 setTwoLines={this.setTwoLines}
                 showClosingTags={this.showClosingTags}
                 setSelectMode={this.setSelectMode}
+                
                 docProps={docProps}
 
                 setSelectable={this.setSelectable}
