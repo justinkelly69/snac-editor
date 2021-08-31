@@ -1,6 +1,6 @@
 import React from 'react'
-import { Attribute, OpenTagEnd, Panels } from '.'
-import * as SNAC from 'snac'
+import { SNAC, Attribute, OpenTagEnd, Panels } from '.'
+//import * as SNAC from 'snac'
 
 const Attributes = (props) => {
     const namespaces = SNAC.getNamespaces(props.data.A)

@@ -1,6 +1,6 @@
 import React from 'react'
-import * as SNAC from 'snac'
-import { Editors, Fields, Sizes, Symbols, TextViews, Prefix, Panels } from '..'
+//import * as SNAC from 'snac'
+import { SNAC, Editors, Fields, Sizes, Symbols, TextViews, Prefix, Panels } from '..'
 
 const PIView = (props) =>
 
@@ -29,7 +29,7 @@ const PIView = (props) =>
 
                     <Prefix
                         prefixEnabled={false}
-                        isAttribute={false} 
+                        isAttribute={false}
                         spacing={props.spacing + props.path.length}
                     />
 
@@ -39,7 +39,7 @@ const PIView = (props) =>
 
                     <Prefix
                         prefixEnabled={false}
-                        isAttribute={false} 
+                        isAttribute={false}
                         spacing={props.spacing + props.path.length}
                     />
 

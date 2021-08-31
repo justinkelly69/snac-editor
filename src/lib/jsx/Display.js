@@ -1,7 +1,5 @@
 import React from 'react'
-import {
-    DocumentElement, Sections, Path, DisplayHeader
-} from '.'
+import { DocumentElement, Sections, Path, DisplayHeader } from '.'
 
 const Display = props => {
 

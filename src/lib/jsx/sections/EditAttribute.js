@@ -1,6 +1,6 @@
 import React from 'react'
-import { Buttons, Fields, Labels, TextInputs, Panels } from '..'
-import * as SNAC from 'snac'
+import { SNAC, Buttons, Fields, Labels, TextInputs, Panels } from '..'
+//import * as SNAC from 'snac'
 
 const EditAttribute = (props) =>
     <>

@@ -77,7 +77,10 @@ import * as Links from './widgets/Links'
 import * as Sections from './widgets/Sections'
 import * as Panels from './widgets/Panels'
 
+import *  as SNAC from '../snac'
+
 export {
+    SNAC,
     DocumentElement, XMLDisplay, NodeEditor, TextEditor, CDATAEditor, CommentEditor, PIEditor, Path,
     Attributes, TextElement, CDATAElement, CommentElement, CommentView, CDATAView, PIElement,
     Attribute, Button, Buttons, Prefix, OpenTagEnd, AttributeNSName,

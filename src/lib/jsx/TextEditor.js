@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { TextAreas, NodeHeader, TextHeader, Panels, CDATAHeader, CommentHeader, PIHeader, Display } from '.'
-import * as SNAC from 'snac'
+import { SNAC, TextAreas, NodeHeader, TextHeader, Panels, CDATAHeader, CommentHeader, PIHeader, Display } from '.'
+//import * as SNAC from 'snac'
 
 const TextEditor = props => {
 

@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import {
+    SNAC,
     XMLDisplay, NodeEditor, TextEditor, CDATAEditor,
     CommentEditor, PIEditor, Editors, Display,
 } from '.'
-import * as SNAC from 'snac'
+//import * as SNAC from 'snac'
 
 class Main extends Component {
     constructor(props) {
@@ -52,6 +53,7 @@ class Main extends Component {
         this.showClosingTags = this.showClosingTags.bind(this)
         this.setSelectMode = this.setSelectMode.bind(this)
         this.setSelectable = this.setSelectable.bind(this)
+        this.newDocument = this.newDocument.bind(this)
     }
 
     setEditor(props) {
@@ -91,6 +93,16 @@ class Main extends Component {
 
     isDisplay(e) {
         return e === Editors.XML_DISPLAY
+    }
+
+    newNode(newNS, newName) {
+        const newNode = SNAC.newElement(newNS, newName)
+        newNode.C = SNAC.newText()
+        return newNode
+    }
+
+    newDocument(newNS='ns', newName='name') {
+        this.clearEditor(() => this.newNode(newNS, newName))
     }
 
     clearEditor(next) {
@@ -161,6 +173,8 @@ class Main extends Component {
                 })
         })
     }
+
+    
 
     saveNode(data, newNS, newName, atts) {
         const { remove, replace } = SNAC.saveNode(data, newNS, newName, atts)

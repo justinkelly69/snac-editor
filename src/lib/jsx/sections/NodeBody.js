@@ -1,6 +1,6 @@
 import React from 'react'
-import * as SNAC from 'snac'
-import { EditAttributes, NewAttribute, Panels } from '..'
+//import * as SNAC from 'snac'
+import { SNAC, EditAttributes, NewAttribute, Panels } from '..'
 
 export const NodeBody = props =>
 

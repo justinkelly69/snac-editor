@@ -1,6 +1,6 @@
 import React from 'react'
-import { NSNameLabels, Sizes, Fields, Brackets, PILang, Panels, Symbols } from '.'
-import * as SNAC from 'snac'
+import { SNAC, NSNameLabels, Sizes, Fields, Brackets, PILang, Panels, Symbols } from '.'
+//import * as SNAC from 'snac'
 
 const Path = props => {
     let pathRow = props.pathRow.map((path, index) =>

@@ -1,6 +1,6 @@
 import React from 'react'
-import { NodeElement, TextElement, CDATAElement, CommentElement, PIElement } from '..'
-import * as SNAC from 'snac'
+import { SNAC, NodeElement, TextElement, CDATAElement, CommentElement, PIElement } from '..'
+//import * as SNAC from 'snac'
 
 const ChildElement = props => {
     const Child = {
@@ -14,8 +14,6 @@ const ChildElement = props => {
     const prefix = [...props.prefix, SNAC.getPrefixItem(props.type, props.index, props.data)]
     const prefixArray = SNAC.getPrefixArray(prefix, props.prefixEnabled)
     const spacing = props.spacing + 1
-
-    //console.log(props.type, props.path)
 
     return (
         Child !== null ?

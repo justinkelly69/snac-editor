@@ -1,6 +1,6 @@
 import React from 'react'
-import * as SNAC from 'snac'
-import { Fields } from '..'
+//import * as SNAC from 'snac'
+import { Fields, SNAC } from '..'
 
 const AttributeValue = props =>
     <Fields.AttributeValue

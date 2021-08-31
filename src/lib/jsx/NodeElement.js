@@ -7,6 +7,7 @@ const NodeElement = props => {
 
     return (
         <Sections.NodeSection selected={props.writeable && props.data.q}>
+            
             {props.path.length > 0 || props.data.N !== '@@@' ?
                 <>
                     <NodeTag
@@ -27,6 +28,7 @@ const NodeElement = props => {
                 </> :
                 null
             }
+
             {props.path.length === 0 || cOpen ?
                 <ChildElements
                     elements={props.data.C}
@@ -40,6 +42,7 @@ const NodeElement = props => {
                 /> :
                 null
             }
+
             {(props.path.length > 0 || props.data.N !== '@@@') && (props.closingTags || !props.writeable)  ? // Closing XML Tag
                 <NodeTag
                     openTag={false}
@@ -51,6 +54,7 @@ const NodeElement = props => {
                 /> :
                 null
             }
+
         </Sections.NodeSection>
     )
 }

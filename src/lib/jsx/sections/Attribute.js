@@ -1,15 +1,10 @@
 import React from 'react'
-import { Prefix, AttributeNSName, AttributeValue, Brackets, Symbols, Fields, Panels } from '..'
+import { Prefix, AttributeNSName, AttributeValue, Brackets, Symbols, Fields } from '..'
 
 const Attribute = (props) => {
 
-    //console.log('props', JSON.stringify(props, null, 4))
-
     return (
         <Fields.TextBody>
-            {/* !props.prefixEnabled &&
-                <Panels.NewLine />
-             */}
 
             <Prefix active={false} twoLines={false} isAttribute={true} {...props} />
 
