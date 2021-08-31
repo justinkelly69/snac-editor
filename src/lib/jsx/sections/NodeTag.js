@@ -4,7 +4,8 @@ import { Prefix, NSNameLabels, Brackets, Links, Symbols } from '..'
 const NodeTag = props =>
     <>
         <Prefix
-            twoLines={props.twoLines}
+            twoLines={false}
+            isAttribute={false}
             isSelectable={props.isSelectable}
             openTag={props.openTag}
             selectMode={props.selectMode}
@@ -14,7 +15,7 @@ const NodeTag = props =>
         {props.showSwitches &&
             <Links.NodeLink
                 onClick={() => {
-                    props.isEdited || props.setCOpen(!props.cOpen)
+                    props.openTag && (props.isEdited || props.setCOpen(!props.cOpen))
                 }}
                 active={props.cOpen}>
                 {props.cOpen ?

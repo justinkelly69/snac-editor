@@ -24,6 +24,7 @@ const CommentView = (props) =>
                     <Panels.NewLine />
                     <Prefix
                         prefixEnabled={false}
+                        isAttribute={false} 
                         spacing={props.spacing + props.path.length}
                     />
                     <TextViews.CommentView>
@@ -31,6 +32,7 @@ const CommentView = (props) =>
                     </TextViews.CommentView>
                     <Prefix
                         prefixEnabled={false}
+                        isAttribute={false} 
                         spacing={props.spacing + props.path.length}
                     />
                     <Panels.NewLine />

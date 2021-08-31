@@ -29,6 +29,7 @@ const PIView = (props) =>
 
                     <Prefix
                         prefixEnabled={false}
+                        isAttribute={false} 
                         spacing={props.spacing + props.path.length}
                     />
 
@@ -38,6 +39,7 @@ const PIView = (props) =>
 
                     <Prefix
                         prefixEnabled={false}
+                        isAttribute={false} 
                         spacing={props.spacing + props.path.length}
                     />
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { NodeTag, Attributes, ChildElements, Sections } from '.'
 
 const NodeElement = props => {
-    const [aOpen, setAOpen] = useState(false)
+    const [aOpen, setAOpen] = useState(true)
     const [cOpen, setCOpen] = useState(true)
 
     return (

@@ -4,11 +4,13 @@ import * as SNAC from 'snac'
 
 const Prefix = props => {
 
+    console.log('twoLines', props.twoLines)
+
     return (
         <>
             {props.prefixEnabled ? (
                 <>
-                    {props.twoLines && props.path.length > 1 &&
+                    {!props.isAttribute && props.twoLines && props.path.length > 1 &&
                         <>
                             <PrefixButton
                                 openTag={false}
