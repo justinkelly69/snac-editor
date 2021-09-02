@@ -39,25 +39,14 @@ const Display = props => {
 
                 <Sections.VerticalColumn>
                     <DocumentElement
-
-                        data={props.docProps.data}
-                        setEditor={props.docProps.setEditor}
-                        clearEditor={props.docProps.clearEditor}
-                        setSelected={props.docProps.setSelected}
-                        writeable={true}
-                        //setPath={props.docProps.setPath}
-                        editor={props.docProps.editor}
-
                         root={props.root}
-                        /* data={props.data}
+                        data={props.root}
+                        writeable={true}
+                        editor={props.editor}
                         setEditor={props.setEditor}
                         clearEditor={props.clearEditor}
                         setSelected={props.setSelected}
-                        writeable={props.writeable}
                         setPath={props.setPath}
-                        editor={props.editor}*/
-                        setPath={props.setPath}
-
                         setSelectable={props.setSelectable}
                         isSelectable={props.isSelectable}
                         twoLines={props.twoLines}

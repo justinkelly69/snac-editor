@@ -101,7 +101,7 @@ class Main extends Component {
         return newNode
     }
 
-    newDocument(newNS='ns', newName='name') {
+    newDocument(newNS = 'ns', newName = 'name') {
         this.clearEditor(() => this.newNode(newNS, newName))
     }
 
@@ -152,7 +152,7 @@ class Main extends Component {
             this.setState({
                 editor: this.state.prevEditor,
                 selectMode: false,
-            },() => this.clearSelected(f=>f))
+            }, () => this.clearSelected(f => f))
             //
         }
     }
@@ -160,7 +160,6 @@ class Main extends Component {
     setSelectable(isSelectable) {
         this.setState({ isSelectable: isSelectable })
     }
-
 
     setPath(pathDisplay, atts = null) {
         this.setState({ pathDisplay: pathDisplay }, () => {
@@ -173,8 +172,6 @@ class Main extends Component {
                 })
         })
     }
-
-    
 
     saveNode(data, newNS, newName, atts) {
         const { remove, replace } = SNAC.saveNode(data, newNS, newName, atts)
@@ -326,51 +323,46 @@ class Main extends Component {
     }
 
     render() {
-
-        const docProps = {
-            data: this.state.root,
-            setEditor: this.setEditor,
-            clearEditor: this.clearEditor,
-            setSelected: this.setSelected,
-            //writeable: this.state.writeable,
-            setPath: this.setPath,
-            editor: this.state.editor,
-        }
-
         return this.state.editor === Editors.NODE_EDITOR ? (
             <NodeEditor
-                data={this.state.data}
                 root={this.state.root}
+                data={this.state.data}
                 path={this.state.path}
                 pathRow={this.state.pathRow}
+                isEdited={this.state.isEdited}
+                twoLines={this.state.twoLines}
+                closingTags={this.state.closingTags}
+                selectMode={this.state.selectMode}
+                isSelectable={this.state.isSelectable}
+                editor={this.state.editor}
+                writeable={true}
+
                 saveNode={this.saveNode}
                 unwrapNode={this.unwrapNode}
                 setEdited={this.setEdited}
-                isEdited={this.state.isEdited}
                 setTwoLines={this.setTwoLines}
-                twoLines={this.state.twoLines}
                 showClosingTags={this.showClosingTags}
-                closingTags={this.state.closingTags}
-                selectMode={this.state.selectMode}
                 setSelectMode={this.setSelectMode}
-
-                docProps={docProps}
-
                 setSelectable={this.setSelectable}
-                isSelectable={this.state.isSelectable}
                 setEditor={this.setEditor}
                 clearEditor={this.clearEditor}
                 setSelected={this.setSelected}
                 setPath={this.setPath}
-                editor={this.state.editor}
-                writeable={true}
             />
         ) : this.state.editor === Editors.TEXT_EDITOR ? (
             <TextEditor
-                data={this.state.data}
                 root={this.state.root}
+                data={this.state.data}
                 path={this.state.path}
                 pathRow={this.state.pathRow}
+                isEdited={this.state.isEdited}
+                twoLines={this.state.twoLines}
+                closingTags={this.state.closingTags}
+                selectMode={this.state.selectMode}
+                isSelectable={this.state.isSelectable}
+                editor={this.state.editor}
+                writeable={true}
+
                 pasteEnable={this.pasteEnable}
                 pasteNodes={this.pasteNodes}
                 insertNode={this.insertNode}
@@ -379,113 +371,97 @@ class Main extends Component {
                 insertPI={this.insertPI}
                 saveText={this.saveText}
                 setEdited={this.setEdited}
-                isEdited={this.state.isEdited}
                 setTwoLines={this.setTwoLines}
-                twoLines={this.state.twoLines}
                 showClosingTags={this.showClosingTags}
-                closingTags={this.state.closingTags}
-                selectMode={this.state.selectMode}
                 setSelectMode={this.setSelectMode}
-
-                docProps={docProps}
-
                 setSelectable={this.setSelectable}
-                isSelectable={this.state.isSelectable}
                 setEditor={this.setEditor}
                 clearEditor={this.clearEditor}
                 setSelected={this.setSelected}
                 setPath={this.setPath}
-                editor={this.state.editor}
-                writeable={true}
             />
         ) : this.state.editor === Editors.CDATA_EDITOR ? (
             <CDATAEditor
-                data={this.state.data}
                 root={this.state.root}
+                data={this.state.data}
                 path={this.state.path}
                 pathRow={this.state.pathRow}
+                isEdited={this.state.isEdited}
+                twoLines={this.state.twoLines}
+                closingTags={this.state.closingTags}
+                selectMode={this.state.selectMode}
+                isSelectable={this.state.isSelectable}
+                editor={this.state.editor}
+                writeable={true}
+
                 saveCDATA={this.saveCDATA}
                 unwrapNode={this.unwrapNode}
                 setEdited={this.setEdited}
-                isEdited={this.state.isEdited}
                 setTwoLines={this.setTwoLines}
-                twoLines={this.state.twoLines}
                 showClosingTags={this.showClosingTags}
-                closingTags={this.state.closingTags}
-                selectMode={this.state.selectMode}
                 setSelectMode={this.setSelectMode}
-
-                docProps={docProps}
-
                 setSelectable={this.setSelectable}
-                isSelectable={this.state.isSelectable}
                 setEditor={this.setEditor}
                 clearEditor={this.clearEditor}
                 setSelected={this.setSelected}
                 setPath={this.setPath}
-                editor={this.state.editor}
-                writeable={true}
             />
         ) : this.state.editor === Editors.COMMENT_EDITOR ? (
             <CommentEditor
-                data={this.state.data}
                 root={this.state.root}
+                data={this.state.data}
                 path={this.state.path}
                 pathRow={this.state.pathRow}
+                isEdited={this.state.isEdited}
+                twoLines={this.state.twoLines}
+                closingTags={this.state.closingTags}
+                selectMode={this.state.selectMode}
+                isSelectable={this.state.isSelectable}
+                editor={this.state.editor}
+                writeable={true}
+
                 saveComment={this.saveComment}
                 unwrapNode={this.unwrapNode}
                 setEdited={this.setEdited}
-                isEdited={this.state.isEdited}
                 setTwoLines={this.setTwoLines}
-                twoLines={this.state.twoLines}
                 showClosingTags={this.showClosingTags}
-                closingTags={this.state.closingTags}
-                selectMode={this.state.selectMode}
                 setSelectMode={this.setSelectMode}
-
-                docProps={docProps}
-
                 setSelectable={this.setSelectable}
-                isSelectable={this.state.isSelectable}
                 setEditor={this.setEditor}
                 clearEditor={this.clearEditor}
                 setSelected={this.setSelected}
                 setPath={this.setPath}
-                editor={this.state.editor}
-                writeable={true}
             />
         ) : this.state.editor === Editors.PI_EDITOR ? (
             <PIEditor
-                data={this.state.data}
                 root={this.state.root}
+                data={this.state.data}
                 path={this.state.path}
                 pathRow={this.state.pathRow}
+                isEdited={this.state.isEdited}
+                twoLines={this.state.twoLines}
+                closingTags={this.state.closingTags}
+                selectMode={this.state.selectMode}
+                isSelectable={this.state.isSelectable}
+                editor={this.state.editor}
+                writeable={true}
+
                 savePI={this.savePI}
                 unwrapNode={this.unwrapNode}
                 setEdited={this.setEdited}
-                isEdited={this.state.isEdited}
                 setTwoLines={this.setTwoLines}
-                twoLines={this.state.twoLines}
                 showClosingTags={this.showClosingTags}
-                closingTags={this.state.closingTags}
                 setSelectMode={this.setSelectMode}
-                selectMode={this.state.selectMode}
-
-                docProps={docProps}
-
                 setSelectable={this.setSelectable}
-                isSelectable={this.state.isSelectable}
                 setEditor={this.setEditor}
                 clearEditor={this.clearEditor}
                 setSelected={this.setSelected}
                 setPath={this.setPath}
-                editor={this.state.editor}
-                writeable={true}
             />
         ) : this.state.editor === Editors.XML_DISPLAY ? (
             <XMLDisplay
-                data={this.state.data}
                 root={this.state.root}
+                data={this.state.data}
                 path={this.state.path}
                 pathRow={this.state.pathRow}
                 prefix={this.state.prefix}
@@ -495,61 +471,53 @@ class Main extends Component {
                 twoLines={this.state.twoLines}
                 closingTags={this.state.closingTags}
                 selectMode={this.state.selectMode}
-
-                cutNodes={this.cutNodes}
-                copyNodes={this.copyNodes}
-                deleteNodes={this.deleteNodes}
-                wrapNodes={this.wrapNodes}
-                clearSelected={this.clearSelected}
-                setEdited={this.setEdited}
-                setTwoLines={this.setTwoLines}
-                showClosingTags={this.showClosingTags}
-                setSelectMode={this.setSelectMode}
-                
-                docProps={docProps}
-
-                setSelectable={this.setSelectable}
                 isSelectable={this.state.isSelectable}
-                setEditor={this.setEditor}
-                clearEditor={this.clearEditor}
-                setSelected={this.setSelected}
-                setPath={this.setPath}
                 editor={this.state.editor}
                 writeable={true}
-            />
 
-
-
-
-        ) : (
-            <Display
-                root={this.state.data}
-                data={this.state.data}
-                path={this.state.path}
-                docProps={docProps}
-                setTwoLines={this.setTwoLines}
-                showClosingTags={this.showClosingTags}
-                closingTags={this.state.closingTags}
-                twoLines={this.state.twoLines}
-                setSelectMode={this.setSelectMode}
-                selectMode={this.state.selectMode}
-                pathRow={this.state.pathRow}
                 cutNodes={this.cutNodes}
                 copyNodes={this.copyNodes}
                 deleteNodes={this.deleteNodes}
                 wrapNodes={this.wrapNodes}
                 clearSelected={this.clearSelected}
                 setEdited={this.setEdited}
-
-                writeable={false}
+                setTwoLines={this.setTwoLines}
+                showClosingTags={this.showClosingTags}
+                setSelectMode={this.setSelectMode}
                 setSelectable={this.setSelectable}
-                isSelectable={this.state.isSelectable}
                 setEditor={this.setEditor}
                 clearEditor={this.clearEditor}
                 setSelected={this.setSelected}
                 setPath={this.setPath}
+            />
+        ) : (
+            <Display
+                root={this.state.root}
+                data={this.state.root}
+                path={this.state.path}
+                closingTags={this.state.closingTags}
+                twoLines={this.state.twoLines}
+                selectMode={this.state.selectMode}
+                pathRow={this.state.pathRow}
+                isSelectable={this.state.isSelectable}
                 editor={this.state.editor}
                 selectedNodes={this.state.selectedNodes}
+
+                setTwoLines={this.setTwoLines}
+                showClosingTags={this.showClosingTags}
+                setSelectMode={this.setSelectMode}
+                cutNodes={this.cutNodes}
+                copyNodes={this.copyNodes}
+                deleteNodes={this.deleteNodes}
+                wrapNodes={this.wrapNodes}
+                clearSelected={this.clearSelected}
+                setEdited={this.setEdited}
+                writeable={false}
+                setSelectable={this.setSelectable}
+                setEditor={this.setEditor}
+                clearEditor={this.clearEditor}
+                setSelected={this.setSelected}
+                setPath={this.setPath}
             />
         )
     }
