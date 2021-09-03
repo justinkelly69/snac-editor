@@ -8,6 +8,8 @@ const Display = props => {
         <Sections.MainContainer>
 
             <DisplayHeader
+                root={props.root}
+
                 twoLines={props.twoLines}
                 setTwoLines={props.setTwoLines}
                 showClosingTags={props.showClosingTags}
@@ -17,6 +19,7 @@ const Display = props => {
                 Header={props.Header}
                 setEditor={props.setEditor}
                 isEdited={props.isEdited}
+                isEmpty={props.isEmpty}
 
                 cutNodes={props.cutNodes}
                 copyNodes={props.copyNodes}

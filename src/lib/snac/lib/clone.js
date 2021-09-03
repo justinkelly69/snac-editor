@@ -3,6 +3,8 @@ import { itemType, has } from './helpers'
 import { NSNameTest } from './regex'
 import { saveAttributes} from './attributes'
 
+export const isEmpty = (snac) => itemType(snac) === 'N' && snac.C.length === 0
+
 export const clone = (snac, settings = {}, newID = false) => {
     const type = itemType(snac)
     return type === 'N' ? (cloneElement(snac, settings, newID)

@@ -81,6 +81,10 @@ class Main extends Component {
             this.clearEditor()
     }
 
+    isEmpty() {
+        return SNAC.isEmpty(this.state.root)
+    }
+
     isEditor(e) {
         return (
             e === Editors.NODE_EDITOR ||
@@ -95,19 +99,17 @@ class Main extends Component {
         return e === Editors.XML_DISPLAY
     }
 
-    newNode(newNS, newName) {
-        const newNode = SNAC.newElement(newNS, newName)
-        newNode.C = SNAC.newText()
-        return newNode
-    }
-
-    newDocument(newNS = 'ns', newName = 'name') {
-        this.clearEditor(() => this.newNode(newNS, newName))
+    newDocument(newNS, newName) {
+        let tagName = newName
+        if(newNS && newNS.length > 0){
+            tagName = `${newNS}:${newName}`
+        }
+        this.clearEditor(() => SNAC.xml2snac(`<${tagName}></${tagName}>`))
     }
 
     clearEditor(next) {
         this.setState({
-            //data: {},
+            data: {},
             editor: '',
             prefix: '',
             path: '',
@@ -323,6 +325,9 @@ class Main extends Component {
     }
 
     render() {
+
+        const isEmpty = this.isEmpty()
+
         return this.state.editor === Editors.NODE_EDITOR ? (
             <NodeEditor
                 root={this.state.root}
@@ -335,6 +340,7 @@ class Main extends Component {
                 selectMode={this.state.selectMode}
                 isSelectable={this.state.isSelectable}
                 editor={this.state.editor}
+                isEmpty={isEmpty}
                 writeable={true}
 
                 saveNode={this.saveNode}
@@ -361,6 +367,7 @@ class Main extends Component {
                 selectMode={this.state.selectMode}
                 isSelectable={this.state.isSelectable}
                 editor={this.state.editor}
+                isEmpty={isEmpty}
                 writeable={true}
 
                 pasteEnable={this.pasteEnable}
@@ -392,6 +399,7 @@ class Main extends Component {
                 selectMode={this.state.selectMode}
                 isSelectable={this.state.isSelectable}
                 editor={this.state.editor}
+                isEmpty={isEmpty}
                 writeable={true}
 
                 saveCDATA={this.saveCDATA}
@@ -418,6 +426,7 @@ class Main extends Component {
                 selectMode={this.state.selectMode}
                 isSelectable={this.state.isSelectable}
                 editor={this.state.editor}
+                isEmpty={isEmpty}
                 writeable={true}
 
                 saveComment={this.saveComment}
@@ -444,6 +453,7 @@ class Main extends Component {
                 selectMode={this.state.selectMode}
                 isSelectable={this.state.isSelectable}
                 editor={this.state.editor}
+                isEmpty={isEmpty}
                 writeable={true}
 
                 savePI={this.savePI}
@@ -473,6 +483,7 @@ class Main extends Component {
                 selectMode={this.state.selectMode}
                 isSelectable={this.state.isSelectable}
                 editor={this.state.editor}
+                isEmpty={isEmpty}
                 writeable={true}
 
                 cutNodes={this.cutNodes}
@@ -502,6 +513,7 @@ class Main extends Component {
                 isSelectable={this.state.isSelectable}
                 editor={this.state.editor}
                 selectedNodes={this.state.selectedNodes}
+                isEmpty={isEmpty}
 
                 setTwoLines={this.setTwoLines}
                 showClosingTags={this.showClosingTags}

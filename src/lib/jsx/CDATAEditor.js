@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Display, CDATAHeader, CDATABody } from '.'
 
 const CDATAEditor = props => {
+    
     const [cdata, setCDATA] = useState(props.data.D)
 
     const Header =
@@ -24,10 +25,6 @@ const CDATAEditor = props => {
         <Display
             Header={Header}
             Body={Body}
-            //selectMode={props.selectMode}
-            //writeable={props.writeable}
-            //{...props}
-
             root={props.root}
             data={props.data}
             path={props.path}
@@ -38,9 +35,6 @@ const CDATAEditor = props => {
             isSelectable={props.isSelectable}
             editor={props.editor}
             selectedNodes={props.selectedNodes}
-
-            //docProps={props.docProps}
-
             setTwoLines={props.setTwoLines}
             showClosingTags={props.showClosingTags}
             setSelectMode={props.setSelectMode}

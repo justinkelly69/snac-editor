@@ -30,9 +30,6 @@ const PIEditor = props => {
         <Display
             Header={Header}
             Body={Body}
-            //selectMode={props.selectMode}
-            //{...props}
-
             root={props.root}
             data={props.data}
             path={props.path}
@@ -43,9 +40,6 @@ const PIEditor = props => {
             isSelectable={props.isSelectable}
             editor={props.editor}
             selectedNodes={props.selectedNodes}
-
-            docProps={props.docProps}
-
             setTwoLines={props.setTwoLines}
             showClosingTags={props.showClosingTags}
             setSelectMode={props.setSelectMode}

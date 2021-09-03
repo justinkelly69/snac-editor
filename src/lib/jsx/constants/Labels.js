@@ -41,6 +41,7 @@ const Labels = {
     HideCloseTags: "Hide Close Tags",
     SelectMode: "Select Mode",
     EditMode: "Edit Mode",
+    NewDocument: "New Document",
 }
 
 export default Labels

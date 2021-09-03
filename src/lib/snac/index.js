@@ -86,6 +86,10 @@ import {
     makeSpacing
 } from './lib/prefix'
 
+import {
+    isEmpty
+} from './lib/clone'
+
 export {
     xml2snac,
     clone,
@@ -152,5 +156,6 @@ export {
     getPrefixString,
     getPrefixArray,
     getPrefix,
-    makeSpacing
+    makeSpacing,
+    isEmpty
 }

@@ -117,10 +117,6 @@ export const NodeEditor = props => {
         <Display
             Header={Header}
             Body={Body}
-            //selectMode={props.selectMode}
-            //writeable={props.writeable}
-            //{...props}
-
             root={props.root}
             data={props.data}
             path={props.path}
@@ -131,9 +127,6 @@ export const NodeEditor = props => {
             isSelectable={props.isSelectable}
             editor={props.editor}
             selectedNodes={props.selectedNodes}
-
-            docProps={props.docProps}
-
             setTwoLines={props.setTwoLines}
             showClosingTags={props.showClosingTags}
             setSelectMode={props.setSelectMode}
