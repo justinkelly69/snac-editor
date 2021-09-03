@@ -132,16 +132,6 @@ class Main extends Component {
         this.setState({ closingTags: !this.state.closingTags })
     }
 
-    setSelectMode1() {
-        if (!this.state.selectMode) {
-            this.setState({
-                editor: Editors.XML_DISPLAY,
-                //selectMode: !this.state.selectMode
-            })
-        }
-        this.setState({ selectMode: !this.state.selectMode })
-    }
-
     setSelectMode(selectMode) {
         if (selectMode === true) {
             this.setState({
@@ -152,7 +142,7 @@ class Main extends Component {
         }
         else {
             this.setState({
-                editor: this.state.prevEditor,
+                editor: '', // this.state.prevEditor,
                 selectMode: false,
             }, () => this.clearSelected(f => f))
             //

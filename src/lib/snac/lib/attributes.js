@@ -48,7 +48,7 @@ export const getAttribute = (ns, name, A) => ({
 
 export const loadAttributes = (A) => {
     const newAtts = {}
-    Object.keys(A).map(a => {
+    A && Object.keys(A).map(a => {
         newAtts[a] = {}
         Object.keys(A[a]).map((aa) => {
             newAtts[a][aa] = {
