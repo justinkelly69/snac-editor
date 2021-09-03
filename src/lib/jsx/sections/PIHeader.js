@@ -3,13 +3,13 @@ import { Buttons, Labels, Brackets, Panels, PanelButtonsRight, TextInputs, Field
 
 const PIHeader = props =>
     <>
-        <Panels.PanelItem flexGrow="1" marginRight={PanelButtonsRight.marginRight}>
+        <Panels.PanelItem marginRight={PanelButtonsRight.marginRight}>
             <Brackets.PIOpenBracket />
             <Fields.PILang>{Labels.PIHeading}</Fields.PILang>
             <Brackets.PICloseBracket />
         </Panels.PanelItem>
 
-        <Panels.PanelItem flexGrow="1" >
+        <Panels.PanelItem>
             <TextInputs.PILangInput
                 value={props.lang}
                 onChange={(event) => {

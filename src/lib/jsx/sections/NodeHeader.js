@@ -13,6 +13,8 @@ const NodeHeader = props =>
             />
         </Panels.PanelItem>
 
+        <Panels.PanelSpacing />
+
         {props.canEdit ?
             <>
                 {!props.newAttr &&
@@ -29,8 +31,6 @@ const NodeHeader = props =>
                                 </Buttons.StandardButton>
                             }
                         </Panels.PanelItem>
-
-                        <Panels.PanelSpacing />
 
                         <Panels.PanelItem>
                             <Buttons.StandardButton
@@ -76,8 +76,6 @@ const NodeHeader = props =>
                         </Buttons.StandardButton>
                     }
                 </Panels.PanelItem>
-
-                <Panels.PanelSpacing />
 
                 <Panels.PanelItem>
                     <Buttons.StandardButton
