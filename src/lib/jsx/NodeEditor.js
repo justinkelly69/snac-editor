@@ -4,9 +4,6 @@ import { SNAC, Display, EditAttributes, NewAttribute, NodeHeader, Panels } from 
 
 export const NodeEditor = props => {
 
-    console.log('A', JSON.stringify(props.data.A, null, 4))
-
-
     const [newNS, setNewNS] = useState(props.data.S === null ? "" : props.data.S)
     const [newName, setNewName] = useState(props.data.N)
     const [newAttNS, setNewAttNS] = useState("")
