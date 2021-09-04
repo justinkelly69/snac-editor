@@ -1,0 +1,60 @@
+.button,
+.checkbox-label {
+  font-size: 0.8em;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 2em;
+  min-width: 8em;
+  padding: 0.2em;
+  border: none;
+  background-color: lightgray;
+  margin-top: 0;
+}
+.button:disabled {
+  background-color: transparent;
+  color: lightgray;
+}
+.checkbox-label {
+  display: block;
+  text-align: center;
+  height: 2em;
+  width: 100%;
+}
+.button-standard {
+  color: black;
+}
+.button-cdata {
+  color: orange;
+}
+.button-comment {
+  color: limegreen;
+}
+.button-pi {
+  color: olive;
+}
+.button-select {
+  background-color: navy;
+  min-width: 0;
+  padding: 0;
+  border: none;
+  height: 1em;
+  width: 1em;
+  border-radius: 0;
+}
+.button-select:disabled {
+  background-color: transparent;
+}
+.button-attributes {
+  color: pink;
+}
+.button-children {
+  color: red;
+}
+.button-text {
+  color: navy;
+}
+
+.checkbox {
+  position: absolute;
+  left: -1000px;
+  top: -1000px;
+}

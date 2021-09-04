@@ -70,7 +70,6 @@ export const NodeEditor = props => {
             atts={atts}
             newAttr={newAttr}
             closeAll={closeAll}
-
         />
     )
 

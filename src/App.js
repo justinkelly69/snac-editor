@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './App.css'
+import './snac.css'
 import allXml from './data/allxml'
 import Main from './lib/jsx/Main'
 

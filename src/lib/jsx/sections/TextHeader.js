@@ -6,42 +6,45 @@ const TextHeader = props =>
         <Panels.PanelItem>
             <Buttons.StandardButton
                 disabled={props.isEdited}
-                onClick={() => props.setMode('N')}>
-                {Labels.NewElementMode}
-            </Buttons.StandardButton>
+                onClick={() => props.setMode('N')}
+                label={Labels.NewElementMode}
+            />
         </Panels.PanelItem>
 
         <Panels.PanelItem>
             <Buttons.CDATAButton
                 disabled={props.isEdited}
-                onClick={() => props.setMode('D')}>
-                {Labels.NewCDATAMode}
-            </Buttons.CDATAButton>
+                onClick={() => props.setMode('D')}
+                label={Labels.NewCDATAMode}
+            />
         </Panels.PanelItem>
 
         <Panels.PanelItem>
             <Buttons.CommentButton
                 disabled={props.isEdited}
-                onClick={() => props.setMode('M')}>
-                {Labels.NewCommentMode}
-            </Buttons.CommentButton>
+                onClick={() => props.setMode('M')}
+                label={Labels.NewCommentMode}
+            />
         </Panels.PanelItem>
 
         <Panels.PanelItem>
             <Buttons.PIButton
                 disabled={props.isEdited}
-                onClick={() => props.setMode('P')}>
-                {Labels.NewPIMode}
-            </Buttons.PIButton>
+                onClick={() => props.setMode('P')}
+                label={Labels.NewPIMode}
+            />
         </Panels.PanelItem>
 
         <Panels.PanelItem>
-            <Checkboxes.NormalizeCheckbox
+            <Checkboxes.Checkbox
                 onChange={(event) => {
                     props.normalizeText(event.target)
                     props.setEdited(true)
                 }}
-                name="normalize" label="Normalize" />
+                id="normalize"
+                labelOff="Normalize"
+                labelOn="Normalize"
+            />
         </Panels.PanelItem>
 
         <Panels.PanelSpacing />
@@ -51,9 +54,9 @@ const TextHeader = props =>
                 onClick={() => {
                     props.saveText(props.data, props.text)
                     props.setEdited(false)
-                }}>
-                {Labels.SaveText}
-            </Buttons.StandardButton>
+                }}
+                label={Labels.SaveText}
+            />
         </Panels.PanelItem>
 
         <Panels.PanelItem>
@@ -61,9 +64,9 @@ const TextHeader = props =>
                 onClick={() => {
                     props.clearEditor()
                     props.setEdited(false)
-                }}>
-                {Labels.CancelText}
-            </Buttons.StandardButton>
+                }}
+                label={Labels.CancelText}
+            />
         </Panels.PanelItem>
     </>
 

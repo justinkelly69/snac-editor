@@ -19,9 +19,9 @@ const CommentHeader = props =>
                             props.unwrapNode(props.root, props.path)
                             props.clearEditor()
                             props.setEdited(false)
-                        }}>
-                        {Labels.UnwrapComment}
-                    </Buttons.StandardButton>
+                        }}
+                        label={Labels.UnwrapComment}
+                    />
                 </Panels.PanelItem>
 
                 <Panels.PanelItem>
@@ -29,9 +29,9 @@ const CommentHeader = props =>
                         onClick={() => {
                             props.saveComment(props.data, props.comment)
                             props.setEdited(false)
-                        }}>
-                        {Labels.SaveComment}
-                    </Buttons.CommentButton>
+                        }}
+                        label={Labels.SaveComment}
+                    />
                 </Panels.PanelItem>
 
                 <Panels.PanelItem>
@@ -39,9 +39,9 @@ const CommentHeader = props =>
                         onClick={() => {
                             props.clearEditor()
                             props.setEdited(false)
-                        }}>
-                        {Labels.CancelComment}
-                    </Buttons.StandardButton>
+                        }}
+                        label={Labels.CancelComment}
+                    />
                 </Panels.PanelItem>
             </> :
             <>
@@ -55,9 +55,9 @@ const CommentHeader = props =>
                             })
                             props.clearEditor()
                             props.setEdited(false)
-                        }}>
-                        {Labels.InsertComment}
-                    </Buttons.CommentButton>
+                        }}
+                        label={Labels.InsertComment}
+                    />
                 </Panels.PanelItem>
 
                 <Panels.PanelItem>
@@ -65,9 +65,9 @@ const CommentHeader = props =>
                         onClick={() => {
                             props.setMode('T')
                             props.setEdited(false)
-                        }}>
-                        {Labels.CancelComment}
-                    </Buttons.StandardButton>
+                        }}
+                        label={Labels.CancelComment}
+                    />
                 </Panels.PanelItem>
             </>
         }

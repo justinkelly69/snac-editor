@@ -41,7 +41,7 @@ const TextEditor = props => {
     }
 
     const Header = (
-        <Panels.PanelHeader>
+        <>
             {mode === 'T' ? (
                 <TextHeader
                     text={text}
@@ -93,7 +93,7 @@ const TextEditor = props => {
                     {...props}
                 />
             ) : null}
-        </Panels.PanelHeader>
+        </>
     )
 
     const Body = (

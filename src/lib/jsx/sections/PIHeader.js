@@ -15,7 +15,8 @@ const PIHeader = props =>
                 onChange={(event) => {
                     props.setLang(event.target.value)
                     props.setEdited(true)
-                }} />
+                }}
+            />
         </Panels.PanelItem>
 
         <Panels.PanelSpacing />
@@ -28,9 +29,9 @@ const PIHeader = props =>
                             props.unwrapNode(props.root, props.path)
                             props.clearEditor()
                             props.setEdited(false)
-                        }}>
-                        {Labels.UnwrapPI}
-                    </Buttons.StandardButton>
+                        }}
+                        label={Labels.UnwrapPI}
+                    />
                 </Panels.PanelItem>
 
                 <Panels.PanelItem>
@@ -38,9 +39,9 @@ const PIHeader = props =>
                         onClick={() => {
                             props.savePI(props.data, props.lang, props.body)
                             props.setEdited(false)
-                        }}>
-                        {Labels.SavePI}
-                    </Buttons.PIButton>
+                        }}
+                        label={Labels.SavePI}
+                    />
                 </Panels.PanelItem>
 
                 <Panels.PanelItem>
@@ -48,9 +49,9 @@ const PIHeader = props =>
                         onClick={() => {
                             props.clearEditor()
                             props.setEdited(false)
-                        }}>
-                        {Labels.CancelPI}
-                    </Buttons.StandardButton>
+                        }}
+                        label={Labels.CancelPI}
+                    />
                 </Panels.PanelItem>
             </> :
             <>
@@ -65,9 +66,9 @@ const PIHeader = props =>
                             })
                             props.clearEditor()
                             props.setEdited(false)
-                        }}>
-                        {Labels.InsertPI}
-                    </Buttons.PIButton>
+                        }}
+                        label={Labels.InsertPI}
+                    />
                 </Panels.PanelItem>
 
                 <Panels.PanelItem>
@@ -75,9 +76,9 @@ const PIHeader = props =>
                         onClick={() => {
                             props.setMode('T')
                             props.setEdited(false)
-                        }}>
-                        {Labels.CancelPI}
-                    </Buttons.StandardButton>
+                        }}
+                        label={Labels.CancelPI}
+                    />
                 </Panels.PanelItem>
             </>
         }

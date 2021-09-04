@@ -9,7 +9,7 @@ const XMLHeader = props => {
     const disabled = props.selectedNodes.length === 0
 
     return (
-        <Panels.PanelHeader>
+        <>
             {mode === Constants.NO_SELECTION ? (
                 <>
                     <Panels.PanelItem>
@@ -19,9 +19,9 @@ const XMLHeader = props => {
                                 props.cutNodes()
                                 props.clearEditor()
                                 props.setSelectMode(false)
-                            }}>
-                            {Labels.CutXML}
-                        </Buttons.StandardButton>
+                            }}
+                            label={Labels.CutXML}
+                        />
                     </Panels.PanelItem>
 
                     <Panels.PanelItem>
@@ -31,9 +31,9 @@ const XMLHeader = props => {
                                 props.copyNodes()
                                 props.clearEditor()
                                 props.setSelectMode(false)
-                            }}>
-                            {Labels.CopyXML}
-                        </Buttons.StandardButton>
+                            }}
+                            label={Labels.CopyXML}
+                        />
                     </Panels.PanelItem>
 
                     <Panels.PanelItem>
@@ -42,9 +42,9 @@ const XMLHeader = props => {
                             onClick={() => {
                                 setMode(Constants.WRAP)
                                 props.setSelectable(false)
-                            }}>
-                            {Labels.WrapXML}
-                        </Buttons.StandardButton>
+                            }}
+                            label={Labels.WrapXML}
+                        />
                     </Panels.PanelItem>
 
                     <Panels.PanelItem>
@@ -54,9 +54,9 @@ const XMLHeader = props => {
                                 props.deleteNodes()
                                 props.clearEditor()
                                 props.setSelectMode(false)
-                            }}>
-                            {Labels.DeleteXML}
-                        </Buttons.StandardButton>
+                            }}
+                            label={Labels.DeleteXML}
+                        />
                     </Panels.PanelItem>
 
                     <Panels.PanelItem>
@@ -66,9 +66,9 @@ const XMLHeader = props => {
                                 props.clearSelected(f => f)
                                 props.clearEditor()
                                 props.setSelectMode(false)
-                            }}>
-                            {Labels.ClearXML}
-                        </Buttons.StandardButton>
+                            }}
+                            label={Labels.ClearXML}
+                        />
                     </Panels.PanelItem>
                 </>
             ) : mode === Constants.WRAP ? (
@@ -88,9 +88,9 @@ const XMLHeader = props => {
                                 props.clearEditor()
                                 props.setSelectable(true)
                                 props.setSelectMode(false)
-                            }}>
-                            {Labels.WrapXML}
-                        </Buttons.StandardButton>
+                            }}
+                            label={Labels.WrapXML}
+                        />
                     </Panels.PanelItem>
 
                     <Panels.PanelItem>
@@ -99,9 +99,9 @@ const XMLHeader = props => {
                                 //props.clearEditor()
                                 props.setSelectable(true)
                                 setMode(Constants.NO_SELECTION)
-                            }}>
-                            {Labels.CancelXML}
-                        </Buttons.StandardButton>
+                            }}
+                            label={Labels.CancelXML}
+                        />
                     </Panels.PanelItem>
 
                 </>
@@ -110,7 +110,7 @@ const XMLHeader = props => {
 
             <Panels.PanelSpacing />
 
-        </Panels.PanelHeader>
+        </>
     )
 }
 

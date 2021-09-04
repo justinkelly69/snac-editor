@@ -1,5 +1,5 @@
 import React from 'react'
-import { SNAC, Checkboxes, Fields, Labels, TextInputs, Panels } from '..'
+import { SNAC, Buttons, Fields, Labels, TextInputs, Panels } from '..'
 //import * as SNAC from 'snac'
 
 const EditAttribute = (props) =>
@@ -56,18 +56,16 @@ const EditAttribute = (props) =>
         <Panels.EditAttributeItem oddEven={props.oddEven}>
             {props.newAttr || props.open ?
                 null :
-                <Checkboxes.Checkbox
-                    disabled={false}
-                    id={props.ns + ':' + props.name}
-                    labelOff={Labels.DeleteAttribute}
-                    labelOn={Labels.UndeleteAttribute}
-                    checked={props.isDeleted}
-                    onChange={() => {
+                <Buttons.StandardButton
+                    onClick={() => {
                         props.markAttributeDeleted(props.atts, props.ns, props.name)
                         props.setEdited(true)
-                    }}
-                />
-            
+                    }}>
+                    {props.isDeleted ?
+                        Labels.UndeleteAttribute :
+                        Labels.DeleteAttribute
+                    }
+                </Buttons.StandardButton>
             }
         </Panels.EditAttributeItem>
     </>

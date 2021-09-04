@@ -1,17 +1,15 @@
 import React from 'react'
-import styled from 'styled-components'
-import { CheckboxStyles } from '..'
 
 export const Checkbox = props =>
-    <label>
+    <span className="checkbox-label">
         <input type="checkbox"
+            id={props.id}
+            className="checkbox"
             disabled={props.disabled}
             checked={props.checked}
-            onChange={props.onChange} />
-        {props.label}
-    </label>
-
-export const NormalizeCheckbox = styled(Checkbox)`
-    height: ${CheckboxStyles.height};
-	width: ${CheckboxStyles.width};
-`
+            onChange={props.onChange}
+        />
+        <label for={props.id}>
+            {props.checked ? props.labelOn : props.labelOff}
+        </label>
+    </span>

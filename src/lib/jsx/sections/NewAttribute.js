@@ -25,21 +25,24 @@ const NewAttribute = (props) =>
                         onClick={() => {
                             props.insertAttribute(props.atts)
                             props.setEdited(true)
-                        }}>
-                        {Labels.SaveAttribute}
-                    </Buttons.StandardButton>
+                        }}
+                        label={Labels.SaveAttribute}
+                    />
 
                     <Buttons.StandardButton
                         onClick={() => {
                             props.newFieldsOpenClose(false)
-                        }}>
-                        {Labels.CancelAttribute}
-                    </Buttons.StandardButton>
+                        }}
+                        label={Labels.CancelAttribute}
+                    />
                 </> :
 
-                <Buttons.StandardButton onClick={() => props.newFieldsOpenClose(true)}>
-                    {Labels.NewAttribute}
-                </Buttons.StandardButton>
+                <Buttons.StandardButton
+                    onClick={() => {
+                        props.newFieldsOpenClose(true)
+                    }}
+                    label={Labels.NewAttribute}
+                />
             }
         </> :
         null

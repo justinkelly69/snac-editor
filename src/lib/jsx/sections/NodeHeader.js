@@ -26,9 +26,9 @@ const NodeHeader = props =>
                                         props.unwrapNode(props.root, props.path)
                                         props.clearEditor()
                                         props.setEdited(false)
-                                    }}>
-                                    {Labels.UnwrapElement}
-                                </Buttons.StandardButton>
+                                    }}
+                                    label={Labels.UnwrapElement}
+                                />
                             }
                         </Panels.PanelItem>
 
@@ -43,9 +43,9 @@ const NodeHeader = props =>
                                     )
                                     props.closeAll(props.atts)
                                     props.setEdited(false)
-                                }}>
-                                {Labels.SaveElement}
-                            </Buttons.StandardButton>
+                                }}
+                                label={Labels.SaveElement}
+                            />
                         </Panels.PanelItem>
 
                         <Panels.PanelItem>
@@ -53,9 +53,9 @@ const NodeHeader = props =>
                                 onClick={() => {
                                     props.clearEditor()
                                     props.setEdited(false)
-                                }}>
-                                {Labels.CancelElement}
-                            </Buttons.StandardButton>
+                                }}
+                                label={Labels.CancelElement}
+                            />
                         </Panels.PanelItem>
                     </>
                 }
@@ -71,9 +71,9 @@ const NodeHeader = props =>
                                 })
                                 props.clearEditor()
                                 props.setEdited(false)
-                            }}>
-                            {Labels.PasteXML}
-                        </Buttons.StandardButton>
+                            }}
+                            label={Labels.PasteXML}
+                        />
                     }
                 </Panels.PanelItem>
 
@@ -88,9 +88,9 @@ const NodeHeader = props =>
                                 after: props.textAfter
                             })
                             props.setEdited(false)
-                        }}>
-                        {Labels.InsertNodeText}
-                    </Buttons.StandardButton>
+                        }}
+                        label={Labels.InsertNodeText}
+                    />
                 </Panels.PanelItem>
 
                 <Panels.PanelItem>
@@ -98,9 +98,9 @@ const NodeHeader = props =>
                         onClick={() => {
                             props.setMode('T')
                             props.setEdited(false)
-                        }}>
-                        {Labels.CancelNodeText}
-                    </Buttons.StandardButton>
+                        }}
+                        label={Labels.CancelNodeText}
+                    />
                 </Panels.PanelItem>
             </>
         }
