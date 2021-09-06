@@ -5,11 +5,14 @@ import { SNAC, Editors, Fields, Sizes, Symbols, TextViews, Prefix, Panels } from
 const CommentView = (props) =>
     <Fields.CommentBody
         onClick={() => {
-            props.writeable && !props.isEdited && !props.selectMode && props.setEditor({
-                data: props.data,
-                editor: Editors.COMMENT_EDITOR,
-                path: props.path
-            })
+            if (props.setSelectMode) {
+                props.selectMode && props.setSelectMode(false)
+                props.writeable && !props.isEdited && props.setEditor({
+                    data: props.data,
+                    editor: Editors.COMMENT_EDITOR,
+                    path: props.path
+                })
+            }
         }}
         onMouseOver={() => {
             props.writeable && props.setPath(props.path)
@@ -24,7 +27,7 @@ const CommentView = (props) =>
                     <Panels.NewLine />
                     <Prefix
                         prefixEnabled={false}
-                        isAttribute={false} 
+                        isAttribute={false}
                         spacing={props.spacing + props.path.length}
                     />
                     <TextViews.CommentView>
@@ -32,7 +35,7 @@ const CommentView = (props) =>
                     </TextViews.CommentView>
                     <Prefix
                         prefixEnabled={false}
-                        isAttribute={false} 
+                        isAttribute={false}
                         spacing={props.spacing + props.path.length}
                     />
                     <Panels.NewLine />

@@ -52,6 +52,7 @@ const Display = props => {
                         setPath={props.setPath}
                         setSelectable={props.setSelectable}
                         isSelectable={props.isSelectable}
+                        setSelectMode={props.setSelectMode}
                         twoLines={props.twoLines}
                         closingTags={props.closingTags}
                         selectMode={props.selectMode}

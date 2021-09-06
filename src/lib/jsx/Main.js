@@ -142,7 +142,7 @@ class Main extends Component {
         }
         else {
             this.setState({
-                editor: '', // this.state.prevEditor,
+                editor: '',
                 selectMode: false,
             }, () => this.clearSelected(f => f))
             //

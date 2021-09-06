@@ -6,11 +6,14 @@ const CDATAView = (props) =>
 
     <Fields.CDATABody
         onClick={() => {
-            props.writeable && !props.isEdited && !props.selectMode && props.setEditor({
-                data: props.data,
-                editor: Editors.CDATA_EDITOR,
-                path: props.path
-            })
+            if (props.setSelectMode) {
+                props.selectMode && props.setSelectMode(false)
+                props.writeable && !props.isEdited && props.setEditor({
+                    data: props.data,
+                    editor: Editors.CDATA_EDITOR,
+                    path: props.path
+                })
+            }
         }}
 
         onMouseOver={() => {
@@ -29,7 +32,7 @@ const CDATAView = (props) =>
 
                     <Prefix
                         prefixEnabled={false}
-                        isAttribute={false} 
+                        isAttribute={false}
                         spacing={props.spacing + props.path.length}
                     />
 
@@ -39,13 +42,13 @@ const CDATAView = (props) =>
 
                     <Prefix
                         prefixEnabled={false}
-                        isAttribute={false} 
+                        isAttribute={false}
                         spacing={props.spacing + props.path.length}
                     />
 
                     <Panels.NewLine />
                 </> :
-                SNAC.normalize(props.data.D).substr(0, Sizes.TextPreviewLength) + Symbols.TextElipsis
+                SNAC.normalize(props.data.D).substring(0, Sizes.TextPreviewLength) + Symbols.TextElipsis
         }
     </Fields.CDATABody>
 

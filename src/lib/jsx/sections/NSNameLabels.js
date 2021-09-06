@@ -4,11 +4,16 @@ import { Fields, Brackets, Editors } from '..'
 const NSNameLabels = props => {
 
     const clickNode = () => {
-        props.writeable && props.setEditor({
-            data: props.data,
-            editor: Editors.NODE_EDITOR,
-            path: props.path
-        })
+
+        if (props.setSelectMode) {
+            props.selectMode && props.setSelectMode(false)
+
+            props.writeable && props.setEditor({
+                data: props.data,
+                editor: Editors.NODE_EDITOR,
+                path: props.path
+            })
+        }
     }
 
     return (
@@ -16,7 +21,7 @@ const NSNameLabels = props => {
             {props.data.S ?
                 <>
                     <Fields.NS
-                        onClick={() => props.writeable && !props.isEdited && !props.selectMode && clickNode()}
+                        onClick={() => props.writeable && !props.isEdited && clickNode()}
                         onMouseOver={() => { props.writeable && props.setPath(props.path) }}
                         onMouseOut={() => { props.writeable && props.setPath([]) }} >
                         {props.data.S}
@@ -27,7 +32,7 @@ const NSNameLabels = props => {
             }
 
             <Fields.Name
-                onClick={() => !props.isEdited && !props.selectMode && clickNode()}
+                onClick={() => !props.isEdited && clickNode()}
                 onMouseOver={() => { props.writeable && props.setPath(props.path) }}
                 onMouseOut={() => { props.writeable && props.setPath([]) }} >
                 {props.data.N}

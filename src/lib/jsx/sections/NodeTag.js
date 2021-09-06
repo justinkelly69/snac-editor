@@ -33,6 +33,7 @@ const NodeTag = props =>
         <NSNameLabels
             isEdited={props.isEdited}
             setEdited={props.setEdited}
+            setSelectMode={props.setSelectMode}
             {...props} />
 
         {!props.openTag &&

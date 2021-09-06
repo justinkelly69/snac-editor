@@ -6,10 +6,13 @@ const TextView = (props) =>
 
     <Fields.TextBody
         onClick={() => {
-            props.writeable && !props.isEdited && !props.selectMode && props.setEditor({
-                data: props.data,
-                editor: Editors.TEXT_EDITOR
-            })
+            if (props.setSelectMode) {
+                props.selectMode && props.setSelectMode(false)
+                props.writeable && !props.isEdited && props.setEditor({
+                    data: props.data,
+                    editor: Editors.TEXT_EDITOR
+                })
+            }
         }}
 
         onMouseOver={() => {
@@ -26,7 +29,7 @@ const TextView = (props) =>
                 <TextViews.TextView>
                     {SNAC.escapeXML(props.data.T)}
                 </TextViews.TextView> :
-                SNAC.normalize(props.data.T).substr(0, Sizes.TextPreviewLength) + Symbols.TextElipsis
+                SNAC.normalize(props.data.T).substring(0, Sizes.TextPreviewLength) + Symbols.TextElipsis
         }
 
     </Fields.TextBody>

@@ -17,6 +17,7 @@ const DocumentElement = props => {
             isEdited={props.isEdited}
             isSelectable={props.isSelectable}
             setSelectable={props.setSelectable}
+            setSelectMode={props.setSelectMode}
             writeable={props.writeable}
             {...props}
         />

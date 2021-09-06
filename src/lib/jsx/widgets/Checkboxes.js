@@ -9,7 +9,7 @@ export const Checkbox = props =>
             checked={props.checked}
             onChange={props.onChange}
         />
-        <label for={props.id}>
+        <label htmlFor={props.id}>
             {props.checked ? props.labelOn : props.labelOff}
         </label>
     </span>

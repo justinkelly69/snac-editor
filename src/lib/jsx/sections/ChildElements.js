@@ -27,6 +27,7 @@ const ChildElements = props => {
                     showSwitches={props.showSwitches}
                     closingTags={props.closingTags}
                     selectMode={props.selectMode}
+                    setSelectMode={props.setSelectMode}
                     twoLines={props.twoLines}
                     isEdited={props.isEdited}
                     isSelectable={props.isSelectable}

@@ -36,6 +36,7 @@ const ChildElement = props => {
                 selectMode={props.selectMode}
                 twoLines={props.twoLines}
                 isEdited={props.isEdited}
+                setSelectMode={props.setSelectMode}
                 isSelectable={props.isSelectable}
                 setSelectable={props.setSelectable}
             /> :

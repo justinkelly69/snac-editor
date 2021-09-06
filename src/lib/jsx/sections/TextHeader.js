@@ -42,8 +42,8 @@ const TextHeader = props =>
                     props.setEdited(true)
                 }}
                 id="normalize"
-                labelOff="Normalize"
-                labelOn="Normalize"
+                labelOff={Labels.Normalize}
+                labelOn={Labels.Normalize}
             />
         </Panels.PanelItem>
 

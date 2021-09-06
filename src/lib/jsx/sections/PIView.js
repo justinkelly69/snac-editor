@@ -6,11 +6,14 @@ const PIView = (props) =>
 
     <Fields.PIBody
         onClick={() => {
-            props.writeable && !props.isEdited && !props.selectMode && props.setEditor({
-                data: props.data,
-                editor: Editors.PI_EDITOR,
-                path: props.path
-            })
+            if (props.setSelectMode) {
+                props.selectMode && props.setSelectMode(false)
+                props.writeable && !props.isEdited && props.setEditor({
+                    data: props.data,
+                    editor: Editors.PI_EDITOR,
+                    path: props.path
+                })
+            }
         }}
 
         onMouseOver={() => {

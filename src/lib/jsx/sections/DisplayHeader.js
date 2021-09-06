@@ -11,8 +11,8 @@ const DisplayHeader = props => {
                 <Checkboxes.Checkbox
                     disabled={props.isEdited}
                     id="mode"
-                    labelOff={Labels.SelectMode}
-                    labelOn={Labels.EditMode}
+                    labelOff={Labels.Select}
+                    labelOn={Labels.Select}
                     checked={props.selectMode}
                     onChange={() => {
                         props.setSelectMode(!props.selectMode)
@@ -25,7 +25,7 @@ const DisplayHeader = props => {
                     id="lines"
                     checked={props.twoLines}
                     labelOff={Labels.TwoLines}
-                    labelOn={Labels.OneLine}
+                    labelOn={Labels.TwoLines}
                     onChange={() => {
                         props.setTwoLines(props.twoLines)
                     }}
@@ -35,8 +35,8 @@ const DisplayHeader = props => {
             <Panels.PanelItem>
                 <Checkboxes.Checkbox
                     id="close"
-                    labelOff={Labels.ShowCloseTags}
-                    labelOn={Labels.HideCloseTags}
+                    labelOff={Labels.CloseTags}
+                    labelOn={Labels.CloseTags}
                     checked={props.closingTags}
                     onChange={() => {
                         props.showClosingTags(props.closingTags)

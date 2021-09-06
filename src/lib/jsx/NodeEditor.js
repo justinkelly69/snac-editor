@@ -60,6 +60,7 @@ export const NodeEditor = props => {
             setEdited={props.setEdited}
             saveNode={props.saveNode}
             unwrapNode={props.unwrapNode}
+            setSelectMode={props.setSelectMode}
 
             canEdit={true}
             isOpen={SNAC.attsOpen(atts)}

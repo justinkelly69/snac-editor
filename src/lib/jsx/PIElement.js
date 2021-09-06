@@ -6,12 +6,14 @@ const PIElement = props => {
 
     return (
         <Sections.TextSection selected={props.writeable && props.data.q}>
+
             <Prefix
                 openTag={true}
                 twoLines={Settings.PREFIX_TWO_LINES}
                 isSelectable={props.isSelectable}
                 {...props}
             />
+
             {props.showSwitches &&
                 <Links.NodeLink onClick={() => setPOpen(!pOpen)}>
                     {pOpen ?
@@ -20,14 +22,19 @@ const PIElement = props => {
                     }
                 </Links.NodeLink>
             }
+
             <Brackets.PIOpenBracket />
+
             <PILang data={props.data} />
+
             <PIView
                 pOpen={pOpen}
                 isEdited={props.isEdited}
                 {...props}
             />
+            
             <Brackets.PICloseBracket />
+            
         </Sections.TextSection>
     )
 }

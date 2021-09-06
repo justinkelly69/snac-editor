@@ -17,6 +17,7 @@ const NodeElement = props => {
                         isEdited={props.isEdited}
                         isSelectable={props.isSelectable}
                         setSelectable={props.setSelectable}
+                        setSelectMode={props.setSelectMode}
                         writeable={props.writeable}
                         {...props}
                     />
@@ -38,6 +39,7 @@ const NodeElement = props => {
                     isSelectable={props.isSelectable}
                     setSelectable={props.setSelectable}
                     writeable={props.writeable}
+                    setSelectMode={props.setSelectMode}
                     {...props}
                 /> :
                 null
@@ -50,6 +52,7 @@ const NodeElement = props => {
                     isSelectable={props.isSelectable}
                     setSelectable={props.setSelectable}
                     writeable={props.writeable}
+                    setSelectMode={props.setSelectMode}
                     {...props}
                 /> :
                 null

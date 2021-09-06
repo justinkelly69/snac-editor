@@ -36,6 +36,7 @@ const NodeItem = props => {
         </>
     )
 }
+
 const AttributeItem = props =>
     <Fields.Attribute>
         <Brackets.AttributeOpenBracket />

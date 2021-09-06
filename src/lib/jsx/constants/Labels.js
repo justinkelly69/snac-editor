@@ -39,9 +39,12 @@ const Labels = {
     TwoLines: "Two Lines",
     ShowCloseTags: "Show Close Tags",
     HideCloseTags: "Hide Close Tags",
+    CloseTags: "Close Tags",
     SelectMode: "Select Mode",
     EditMode: "Edit Mode",
+    Select: "Select",
     NewDocument: "New Document",
+    Normalize: "Normalize",
 }
 
 export default Labels
