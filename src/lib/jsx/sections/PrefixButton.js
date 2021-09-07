@@ -7,6 +7,7 @@ const PrefixButton = props =>
             <Buttons.SelectXML
                 onClick={() => {
                     props.openTag && props.setSelected(props.path, (root, selectedPaths, selectedNodes) => {
+                        !props.selectMode && props.setSelectMode(true)
                         props.setEditor({
                             data: props.data,
                             editor: Editors.XML_DISPLAY,

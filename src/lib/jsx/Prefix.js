@@ -26,14 +26,17 @@ const Prefix = props => {
                             <Panels.NewLine />
                         </>
                     }
+                    
                     <PrefixButton
-                        openTag={props.openTag && props.selectMode && props.isSelectable}
+                        openTag={props.openTag && props.isSelectable}
                         writeable={props.writeable}
                         data={props.data}
                         path={props.path}
                         prefix={props.prefix}
                         setEditor={props.setEditor}
                         setSelected={props.setSelected}
+                        setSelectMode={props.setSelectMode}
+                        selectMode={props.selectMode}
                     />
 
                     <Panels.Prefix>

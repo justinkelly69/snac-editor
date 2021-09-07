@@ -9,19 +9,6 @@ const DisplayHeader = props => {
 
             <Panels.PanelItem>
                 <Checkboxes.Checkbox
-                    disabled={props.isEdited}
-                    id="mode"
-                    labelOff={Labels.Select}
-                    labelOn={Labels.Select}
-                    checked={props.selectMode}
-                    onChange={() => {
-                        props.setSelectMode(!props.selectMode)
-                    }}
-                />
-            </Panels.PanelItem>
-
-            <Panels.PanelItem>
-                <Checkboxes.Checkbox
                     id="lines"
                     checked={props.twoLines}
                     labelOff={Labels.TwoLines}
