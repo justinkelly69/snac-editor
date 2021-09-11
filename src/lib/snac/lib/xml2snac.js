@@ -10,6 +10,15 @@ export const xml2snac = xml => ({
     C: [xml2element(new DOMParser().parseFromString(xml, 'text/xml').documentElement)]
 })
 
+export const xml2snac1 = xml => {
+    const snac = {
+        _: '@',
+        R: xml2element(new DOMParser().parseFromString(xml, 'text/xml').documentElement)
+    }
+    //console.log('snac', JSON.stringify(snac, null, 4))
+    return snac
+}
+
 export const xml2element = (doc) => {
     return ({
         _: `N${v4()}`,
