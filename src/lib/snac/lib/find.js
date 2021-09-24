@@ -1,4 +1,3 @@
-import _ from 'lodash'
 import { clone, cloneElement } from './clone'
 import { itemType } from './helpers'
 

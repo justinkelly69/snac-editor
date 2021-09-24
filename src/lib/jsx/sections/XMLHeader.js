@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Buttons, Labels, Panels, Constants, NSNameTextInputs, SNAC } from '..'
+import { Buttons, Labels, Panels, Constants, NSNameTextInputs } from '..'
 
 const XMLHeader = props => {
 
