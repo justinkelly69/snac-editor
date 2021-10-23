@@ -72,11 +72,13 @@ export const cloneChildren = (kids = [], settings = {}) => {
             removeIndex = removeIndex + 1
             removeIndex === remove.length &&
             replace.forEach(rep => {
-                newKids = [...newKids, clone(rep, { newID: newID })]
+                //newKids = [...newKids, clone(rep, { newID: newID })]
+                newKids.push(clone(rep, { newID: newID }))
             })
         }
         else {
-            newKids = [...newKids, clone(kid, settings)]
+            //newKids = [...newKids, clone(kid, settings)]
+            newKids.push(clone(kid, settings))
         }
     })
 

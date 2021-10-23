@@ -3,7 +3,8 @@ export const getPrefixItem = (type, index, data) => type === 'N' ? [index, data.
 export const getPrefixString = (prefixArray, prefixOff, prefixOn) => {
     let out = ""
     prefixArray.forEach(prefixItem => {
-        out = out + (prefixItem ? prefixOn : prefixOff)
+        //out = out + (prefixItem ? prefixOn : prefixOff)
+        out += (prefixItem ? prefixOn : prefixOff)
     })
     return out
 }
@@ -13,14 +14,19 @@ export const getPrefixArray = (prefixArray, enabled) => {
 
     prefixArray.forEach((prefixItem, index) => {
         index <= 1 ?
-            out = [...out, false] :
+            //out = [...out, false] :
+            out.push(false) :
             enabled ?
                 prefixItem.length === 1 ?
-                    out = [...out, true] :
+                    //out = [...out, true] :
+                    out.push(true) :
                     prefixArray[index][0] < prefixArray[index - 1][1] - 1 ?
-                        out = [...out, true] :
-                        out = [...out, false] :
-                out = [...out, false]
+                        //out = [...out, true] :
+                        out.push(true) :
+                        //out = [...out, false] :
+                        out.push(false) :
+                //out = [...out, false]
+                out.push(false)
     })
     return out
 }

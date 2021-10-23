@@ -27,7 +27,8 @@ export const findTag = (snac, path) => {
 export const findTags = (snac, paths) => {
     let out = []
     paths.forEach((path) => {
-        out = [...out, findTag(snac, path)]
+        //out = [...out, findTag(snac, path)]
+        out.push(findTag(snac, path))
     })
     return out
 }
@@ -40,7 +41,8 @@ export const findTags = (snac, paths) => {
 export const findIDs = (snac, paths) => {
     let out = []
     paths.forEach((path) => {
-        out = [...out, findID(snac, path)]
+        //out = [...out, findID(snac, path)]
+        out.push(findID(snac, path))
     })
     return out
 }

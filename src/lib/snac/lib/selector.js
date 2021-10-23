@@ -9,7 +9,8 @@ export const setSelected = (root, _selectedPaths = [], path) => {
 
     let selectedNodes = []
     nodes.forEach((node, i) => {
-        selectedNodes = [...selectedNodes, node[node.length - 1]]
+        //selectedNodes = [...selectedNodes, node[node.length - 1]]
+        selectedNodes.push(node[node.length - 1])
     })
 
     return ({

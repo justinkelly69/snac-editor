@@ -45,7 +45,7 @@ export const xml2atts = (atts) => {
     return A
 }
 
-export const xml2kids = kids => {
+export const xml2kids0 = kids => {
     let children = [], depth = 0, prev = 'X'
     Array(kids.length).fill().forEach((_, index) => {
         const kid = kids[index]
@@ -59,7 +59,7 @@ export const xml2kids = kids => {
             [children, depth, prev] = [[...children, newText(kid.data)], depth + 1, 'T']
         )
         kid.nodeType === 4 && (
-            [children, depth, prev] = [[...children, newCDATA(kid.nodeValue,)], depth + 1, 'D']
+            [children, depth, prev] = [[...children, newCDATA(kid.nodeValue)], depth + 1, 'D']
         )
         kid.nodeType === 8 && (
             [children, depth, prev] = [[...children, newComment(kid.nodeValue)], depth + 1, 'M']
@@ -71,4 +71,36 @@ export const xml2kids = kids => {
     return children
 }
 
+export const xml2kids = kids => {
+    //console.log('kids', JSON.stringify(kids.length, null, 4))
+    let children = [], prev='X'
+    Array(kids.length).fill().forEach((_, index) => {
+        const kid = kids[index]
+        if(prev !== 'T' && kid.nodeType !== 3) {
+            prev = 'T'
+            children.push(newText(''))
+        }
+        else if(kid.nodeType === 1){
+            prev = 'N'
+            children.push(xml2element(kid))
+        }
+        else if(kid.nodeType === 3){
+            prev = 'T'
+            children.push(newText(kid.data))
+        }
+        else if(kid.nodeType === 4){
+            prev = 'D'
+            children.push(newCDATA(kid.nodeValue))
+        }
+        else if(kid.nodeType === 8){
+            prev = 'M'
+            children.push(newComment(kid.nodeValue))
+        }
+        else if(kid.nodeType === 7){
+            prev = 'P'
+            children.push(newPI(kid.target, kid.data))
+        }
+    })
+    return children
+}
 
